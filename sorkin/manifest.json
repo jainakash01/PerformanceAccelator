@@ -1,0 +1,13 @@
+<hr>
+                               <div class="row">
+                                   <div class="col-md-12 col-sm-12 col-xs-12 formelem">
+                                       <!--
+
+<h4>Intrapreneurial Thinking</h4> -->
+                                       <div class="checkbox checkbox-primary">
+                                           <input id="checkbox2" class="styled" type="checkbox">
+<label id ="checkbox2"for="checkbox2">Intrapreneurial Thinking</label>
+                                           <p>Creative, pre-emptive and resourceful, I ask questions that demonstrate my leadership capacity and provoke fresh, collaborative ideas</p>
+                                       </div>
+                                   </div>
+                               </div>

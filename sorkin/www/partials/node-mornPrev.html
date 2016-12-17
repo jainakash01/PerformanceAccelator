@@ -1,0 +1,36 @@
+<li>
+	<div class="hover-effect-tree" id="treediv1" ng-class="{'odd-div':$first}">
+	    <span class="expand-tree show-cursor" ng-if="$index != 0"  ng-click="toggleVisibility(nodemprev)"> {{ ( nodemprev.childrenVisibility && nodemprev.children.length ) ? '+' : '-' }}</span>
+
+	    <input ng-if="$index != 0" ng-show="nodemprev.itemType == 'Root Factor' "  ng-click="checkNode(nodemprev)" type="checkbox" ng-checked="nodemprev.checked">
+
+	    <span class="align-tree">
+	    	<span class="tree-content" ng-if="$index != 0">
+		      	<span ng-if="nodemprev.itemType != 'Root Factor' ">{{ nodemprev.name }} </span>
+		      	<span ng-if="nodemprev.itemType == 'Root Factor' ">{{ nodemprev.name.name }} &nbsp;&nbsp; {{nodemprev.name.DS}}  </span>
+	        </span>
+	        <small ng-if="$index == 0">
+	        	<span id="markspan">
+		        	<span ng-if="nodemprev.itemType == 'Organisational Goal' ">
+		        		<img src="images/og.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodemprev.itemType == 'Individual Performance Goal' " >
+		        		<img src="images/ipg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodemprev.itemType == 'Individual Development Goal' " >
+		        		<img src="images/idg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodemprev.itemType == 'Skills and Competencies' " >
+		        		<img src="images/skills.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodemprev.itemType == 'Root Factor' " >
+		        		<img src="images/rf.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodemprev.itemType == 'Organisational Goal' " class="default-cursor">Organizational Goal</span>
+		        	<span ng-if="nodemprev.itemType != 'Organisational Goal' " class="default-cursor">{{nodemprev.itemType}}</span>
+		        </span>&nbsp;&nbsp;
+<!-- 		        <i class="show-cursor fa fa-plus" ng-click="addNewJson(nodemprev)"></i>
+ -->		    </small>
+	    </span>
+	</div>
+</li>

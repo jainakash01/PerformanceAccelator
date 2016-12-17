@@ -1,0 +1,38 @@
+<li>
+	<div class="hover-effect-tree" id="treediv1" ng-class="{'odd-div':$first}">
+	    <span class="expand-tree show-cursor" ng-if="$index != 0"  ng-click="toggleVisibility(noderp)"> {{ ( noderp.childrenVisibility && noderp.children.length ) ? '+' : '-' }}
+	    </span>
+	   	<span class="align-tree">
+	 		<span class="tree-content" ng-if="$index != 0 && noderp.checked">
+	      		<span ng-if="noderp.itemType != 'Root Factor' " >{{ noderp.name }} </span>
+	      		<span ng-if="noderp.itemType == 'Root Factor' ">{{ noderp.name.name }} &nbsp;&nbsp; {{noderp.name.DSforRater}}
+	      			<!-- <div star-rating ng-model="noderp.rating" max="5"></div> -->
+	      			<div>
+		      			<input id="input-21b" value="0" type="number" class="rating" min=0 max=5 step=1 data-size="xs" ng-model="noderp.rating">
+		      	        <textarea id ="text" class="star-text-area" type="text" ng-model="nodeer.raterComments" style="color:black" placeholder="Comments"></textarea>
+		      			
+		      		</div>
+	      		</span>
+	        </span>
+	        <small ng-if="$index == 0">
+	        	<span ng-if="noderp.itemType == 'Organisational Goal' ">
+		        		<img src="images/og.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="noderp.itemType == 'Individual Performance Goal' " >
+		        		<img src="images/ipg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="noderp.itemType == 'Individual Development Goal' " >
+		        		<img src="images/idg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="noderp.itemType == 'Skills and Competencies' " >
+		        		<img src="images/skills.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="noderp.itemType == 'Root Factor' " >
+		        		<img src="images/rf.svg" class="tree-dir-img">
+		        	</span>
+	        	   <span ng-if="noderp.itemType == 'Organisational Goal' ">Organizational Goal</span>
+		           <span ng-if="noderp.itemType != 'Organisational Goal' ">{{noderp.itemType}}</span>
+	        </small>
+	    </span>
+	</div>
+</li>

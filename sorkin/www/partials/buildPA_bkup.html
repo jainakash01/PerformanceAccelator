@@ -1,0 +1,292 @@
+<div id="wrapper">
+    <div ng-include="'partials/sidebar-template.html'"></div>
+        <div class="content animated bounceInUp" id="page-wrapper">
+		    <div id="page-inner">
+		    	<div class="row fade-in one">
+		            <div class="col-md-12 goal-heading">
+		    			<p>Setup Program</p>
+		    		</div>
+		    	</div>
+		    	<hr>
+				<div class="row">
+				    <div class="col-md-6 col-sm-6 col-xs-12 font-bold">
+				    	<h4>Coach Name :</h4>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 font-bold">
+				    	<h4>Coach Email id :</h4>
+					</div>
+				</div>
+				<div class="row">
+				    <div class="col-md-6 col-sm-6 col-xs-12 font-bold">
+				    	<h4>Stephen Sorkin</h4>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 font-bold">
+				    	<h4>stephen@iaccel-atstakeperformance.com</h4>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+				    <div class="col-md-5 col-sm-5 col-xs-12 font-bold">
+				    	<h4>Training cycle (number of days)</h4>
+					</div>
+					<div class="col-md-7 col-sm-7 col-xs-12 font-bold">
+				    	<input type="number" class="textboxea set-padd" id="inputcycle" placeholder="Training cycle" ng-model="inputCycle"/>
+					</div>
+				</div>
+				<hr>
+		    	<div class="panel-set panel-back noti-box-set fade-in two" id="profileBlock">
+		    		<div class="row" ng-click="collapse(0,'profileBlock')">
+			            <div class="col-md-12 hover-effect" >
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-goal"></i>
+				                </span>
+				            </div>
+			    			<p>Goals</p>
+			    		</div>
+			    	</div>
+			    	<div class="panel-option" ng-show="showProfile">
+			    		<hr>
+				    	<div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold">
+				    			<h4>Organizational Goals</h4>
+					    	</div>
+					    </div>
+					    <div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+				    			<fieldset class="form-group">
+								    <select class="form-control set-height" id="orgGoal" ng-model="orgGoal" ng-change="validateOrgGoal()">
+								      <option>Please select ...</option>
+								      <option>N/A</option>
+								      <option>Increase Revenue</option>
+								      <option>Increase Profit</option>
+								      <option>Increase Retention</option>
+								      <option>Integrate New Process</option>
+								      <option>Take Project X to market</option>
+								      <option>Improve Productivity by 20%</option>
+								      <option>Award winning culture</option>
+								      <option>Custom</option>
+								    </select>
+								</fieldset>
+					    	</div>
+					    </div>
+					    <div class="row" ng-show="showorgGoal">
+		                    <div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+						    	<div class="col-md-5 col-sm-12 col-xs-12 info-p">
+			                        <p>Custom Organizational Goal</p>
+			                    </div>
+			                    <div class="col-md-7 col-sm-12 col-xs-12 setpaddright">
+			                        <input type="text" class="textboxea set-padd" id="customorggoal" placeholder="Custom Organizational Goal" ng-model="customOrgGoal"/>
+			                    </div>
+			                </div>
+		                </div>
+					    <hr>
+				    	<div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold">
+				    			<h4>Individual Performance Goal</h4>
+					    	</div>
+					    </div>
+					    <div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+				    			<fieldset class="form-group">
+								    <select class="form-control set-height" id="indiPerformGoal" ng-model="indiPerformGoal" ng-change="validatePerformGoal()">
+								      <option>Please select ...</option>
+								      <option>N/A</option>
+								      <option>Integrate systems across regions</option>
+								      <option>Onboard 3 additional reports</option>
+								      <option>Level 2 expertise on M&A</option>
+								      <option>Fund and launch cross-departmental</option>
+								      <option>Gain executive level trust</option>
+								      <option>Develop A players</option>
+								      <option>Set best in class standards</option>
+								      <option>Custom</option>
+								    </select>
+								</fieldset>
+					    	</div>
+					    </div>
+					    <div class="row" ng-show="showPerformGoal">
+						    <div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+						    	<div class="col-md-5 col-sm-12 col-xs-12 info-p">
+			                        <p>Custom Performance Goal</p>
+			                    </div>
+			                    <div class="col-md-7 col-sm-12 col-xs-12 setpaddright">
+			                        <input type="text" class="textboxea set-padd" id="customperformgoal" placeholder="Custom Performance Goal" ng-model="customPerformGoal"/>
+			                    </div>
+			                </div>
+		                </div>
+					    <hr>
+				    	<div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold">
+				    			<h4>Individual Development Goal</h4>
+					    	</div>
+					    </div>
+					    <div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+				    			<fieldset class="form-group">
+								    <select class="form-control set-height" id="indiDevelopGoal" ng-model="indiDevelopGoal" ng-change="validateDevGoal()">
+								      <option>Please select ...</option>
+								      <option>N/A</option>
+								      <option>20% more SME</option>
+								      <option>Trusted as an executive</option>
+								      <option>Influence across functions</option>
+								      <option>Engage and retain employees</option>
+								      <option>Gain executive level trust</option>
+								      <option>20% more efficient</option>
+								      <option>Work life balance</option>
+								      <option>Custom</option>
+								    </select>
+								</fieldset>
+					    	</div>
+					    </div>
+					    <div class="row" ng-show="showdevGoal">
+		                    <div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+						    	<div class="col-md-5 col-sm-12 col-xs-12 info-p">
+			                        <p>Custom Development Goal</p>
+			                    </div>
+			                    <div class="col-md-7 col-sm-12 col-xs-12 setpaddright">
+			                        <input type="text" class="textboxea set-padd" id="customdevgoal" placeholder="Custom Development Goal" ng-model="customDevGoal"/>
+			                    </div>
+			                </div>
+		                </div>
+					</div>
+		    	</div>
+
+		    	<div class="panel-set panel-back noti-box-set fade-in three" id="inviteBlock">
+		    		<div class="row" ng-click="collapse(1,'inviteBlock')">
+			            <div class="col-md-12 hover-effect">
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-skill"></i>
+				                </span>
+				            </div>
+			    			<p>Individual Skills & Competencies</p>
+			    		</div>
+			    	</div>
+			    	<div class="panel-option" ng-show="showinviteRater">
+			    		<hr>
+				    	<div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold">
+				    			<!-- <h4>Increase Retention</h4> -->
+					    	</div>
+					    </div>
+					    <div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+				    			<fieldset class="form-group">
+								    <select class="form-control set-height" id="indiSkill" ng-model="indiSkill" ng-change="validateSkill()">
+								      <option>Please select ...</option>
+								      <option>Cross functional influence</option>
+								      <option>Get buy-in</option>
+								      <option>Inspire trust</option>
+								      <option>Develop executive level relationships</option>
+								      <option>Strategically big picture thinking</option>
+								      <option>Work on the business</option>
+								      <option>SME</option>
+								      <option>Custom</option>
+								    </select>
+								</fieldset>
+					    	</div>
+					    </div>
+					    <div class="row" ng-show="showskillcomp">
+		                    <div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+						    	<div class="col-md-5 col-sm-12 col-xs-12 info-p">
+			                        <p>Custom Skills & Competencies</p>
+			                    </div>
+			                    <div class="col-md-7 col-sm-12 col-xs-12 setpaddright">
+			                        <input type="text" class="textboxea set-padd" id="customskill" placeholder="Skills & Competencies" ng-model="customSkillComp"/>
+			                    </div>
+			                </div>
+		                </div>
+					</div>
+		    	</div>
+
+		    	<div class="panel-set panel-back noti-box-set fade-in four" id="manageBlock">
+			    	<div class="row">
+			            <div class="col-md-12 hover-effect" ng-click="collapse(2,'manageBlock')">
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-factor"></i>
+				                </span>
+				            </div>
+			    			<p>Individual Root Factors</p>
+			    		</div>
+			    	</div>
+
+					<div class="panel-option" ng-show="showManage">
+				    		<hr>
+					    	<div class="row">
+					    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold">
+					    			<!-- <h4>Increase Retention</h4> -->
+						    	</div>
+						    </div>
+						    <div class="row">
+					    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+					    			<fieldset class="form-group">
+									    <select class="form-control set-height" id="indiRootFactor" ng-model="indiRootFactor" ng-change="validateRootFact()">
+									      <option>Please select ...</option>
+									      <option>Ownership</option>
+									      <option>Intrapraneurial thinking</option>
+									      <option>Humility</option>
+									      <option>Greater good</option>
+									      <option>Story telling / Clarity of focus</option>
+									      <option>Pre-emptive</option>
+									      <option>Detachment</option>
+									      <option>Custom</option>
+									    </select>
+									</fieldset>
+						    	</div>
+						    </div>
+						    <div class="row" ng-show="showrootFact">
+		                    <div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+						    	<div class="col-md-5 col-sm-12 col-xs-12 info-p">
+			                        <p>Custom Root Factor</p>
+			                    </div>
+			                    <div class="col-md-7 col-sm-12 col-xs-12 setpaddright">
+			                        <input type="text" class="textboxea set-padd" id="customrootfact" placeholder="Custom Root Factor" ng-model="customRootFact"/>
+			                    </div>
+			                </div>
+		                </div>
+						</div>
+				    </div>
+
+			    <div class="panel-set panel-back noti-box-set fade-in five" id="acceptBlock">
+			    	<div class="row hover-effect" >
+			            <div class="col-md-11 col-sm-11 col-xs-11" ng-click="collapse(3,'acceptBlock')">
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-dailystm"></i>
+				                </span>
+				            </div>
+			    			<p>Daily Statement</p>
+			    		</div>
+			    	</div>
+			    	<div class="panel-option" ng-show="showAccept">
+				    	<div class="row">
+						    <div class="col-md-12 col-sm-12 col-xs-12 font-bold">
+						    	<!-- <h4>Daily Statement</h4> -->
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						    	<textarea class="form-control" rows="5" id="comment" ng-model="comment"></textarea>
+							</div>
+						</div>
+					</div>
+			    </div>
+			    <div class="row" style="margin-top:15px;">
+		            <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2 col-md-4 col-sm-5 col-xs-6 formelem1">
+		                        <div class="panel noti-box">
+		                            <div class="text-box" >
+		                                <a class="btn btn-primary btn-lg set-width" ng-click="addItem()">Add item</a>
+		                            </div>
+		                        </div>
+		            </div>
+		            <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2 col-md-4 col-sm-5 col-xs-6 formelem1">
+		                        <div class="panel noti-box">
+		                            <div class="text-box" >
+		                                <a class="btn btn-danger btn-lg set-width" ng-click="cancel()">Back</a>
+		                            </div>
+		                        </div>
+		            </div>
+		                </div>
+		    </div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,221 @@
+<div  ng-cloak id="wrapper">
+    <div ng-include="'partials/sidebar-template.html'"></div>
+        <div class="content animated bounceInUp" id="page-wrapper">
+		    <div id="page-inner">
+		    	<div class="row fade-in one">
+		            <div class="col-md-12 goal-heading">
+		    			<p>Admin</p>
+		    		</div>
+		    	</div>
+		    	<hr>
+
+		    	<div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 remove-padd">
+                        <p>Change Password for any User</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <input type="email" class="textboxea set-padd" id="addstate1" placeholder="User Email" ng-model="changeUserPass"/>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <input type="password" class="textboxea set-padd" id="addstate1" placeholder="New Password" ng-model="newPassword"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-3 col-md-9 col-sm-10 col-xs-12">
+                        <div class="panel11">
+                            <div class="text-box" >
+                                <a class="btn btn-primary btn-lg" ng-click="changePassword(changeUserPass,newPassword)">Change and Save</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+
+
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 remove-padd">
+                        <p>Delete a User from System</p>
+                    </div>
+                </div>
+       <div class="row">
+
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <input type="text" class="textboxea set-padd" id="userToDelete" placeholder="User to delete" ng-model="userToDelete"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-3 col-md-9 col-sm-10 col-xs-12">
+                        <div class="panel11">
+                            <div class="text-box" >
+                                <a class="btn btn-primary btn-lg" ng-click="deleteUser(userToDelete)" style="width: 178px;">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 remove-padd">
+                        <p>Change Role</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <input type="email" class="textboxea set-padd" id="changeroleemail" placeholder="User Email" ng-model="changeUserAdmin"/>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <input type="text" class="textboxea set-padd" id="changedrole" placeholder="New Role" ng-model="newRole"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-3 col-md-9 col-sm-10 col-xs-12">
+                        <div class="panel11">
+                            <div class="text-box" >
+                                <a class="btn btn-primary btn-lg" ng-click="changeAdmin(changeUserAdmin,newRole)">Change and Save</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 remove-padd">
+                        <p>Add Goals</p>
+                    </div>
+                </div>
+                <div class="row">
+                	<div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <p>Organisation Goals</p>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <textarea class="form-control" rows="4" id="commentog" ng-model="newOgList" placeholder="Give comma-separated values"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                	<div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <p>Individual Developement Goals</p>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <textarea class="form-control" rows="4" id="commentidg" ng-model="newIdgList" placeholder="Give comma-separated values"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                	<div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <p>Individual Performance Goals</p>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <textarea class="form-control" rows="4" id="commentipg" ng-model="newIpgList" placeholder="Give comma-separated values"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                	<div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <p>Skills and Competencies</p>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <textarea class="form-control" rows="4" id="commentskilld" ng-model="newSkillsList" placeholder="Give comma-separated values"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                	<div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <p>Root Factor</p>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 input-margin">
+                        <textarea class="form-control" rows="4" id="commentrf" ng-model="newRootFactor" placeholder="Give comma-separated values"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-3 col-md-9 col-sm-10 col-xs-12">
+                        <div class="panel11">
+                            <div class="text-box" >
+                                <a class="btn btn-primary btn-lg" ng-click="saveProgParameters()">Save Parameters</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 remove-padd">
+                        <p>View Programs !!</p>
+                    </div>
+                </div>
+		       <div class="row">
+	                <div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+	                    <fieldset class="form-group">
+	                        <select class="form-control set-height" id="personToBeRated" ng-model="personToBeRated" ng-change="changedPersonDtls(personToBeRated)">
+	                          <option ng-repeat="person in allUsers" >{{person.email}}</option>
+	                        </select>
+	                    </fieldset>
+	                </div>
+	               <span ng-show="false">Training Cycle :<input ng-model="inputCycle"></input></span>
+		        </div>
+
+          		<div class="row" ng-if="showProgramDtls">
+					<div class="set-width-tree">
+						<span><p>Existing Program</p><span>
+						<div class="program-area">
+							<ul class="tree">
+		       					<node-tree children="tree"></node-tree>
+		   					</ul>
+		   				</div>
+	   				</div>
+
+	   				<button style="margin-top:10px;margin-left:10px;" class="btn btn-primary" ng-click="saveProgUser()">Save program for selected user</button>
+
+   				</div>
+
+		    </div>
+		</div>
+	</div>
+</div>
+
+
+
+
+    <script type="text/ng-template" id="AddNewItem.html">
+		<div class="modal-header">
+			<span class="popup-title"><p>Add new Item</p></span>
+			<span class="popup-content"><p>
+<span ng-if="itemType == 'Organisational Goal' " class="default-cursor">Organizational Goal</span>
+		        	<span ng-if="itemType != 'Organisational Goal' " class="default-cursor">{{itemType}}</span>
+			</p></span>
+		</div>
+       	<div class="modal-body">
+       		<fieldset class="form-group">
+				<select class="form-control" ng-model="selectedItem">
+					<option ng-repeat="item in list">{{item}}</option>
+				</select>
+			</fieldset>
+			<div ng-show="selectedItem == 'Custom'">
+				<input type="text" class="textboxeapop set-padd" id="customrootfact" placeholder="Custom {{itemType}}" ng-model="customGoal"/>
+			</div>
+
+			<div ng-show="itemType == 'Root Factor'">
+				<hr>
+				<span>Daily Statement</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not Required: <input type="checkbox" id="dsCheck" ng-model="dsCheck" ng-change="dailyStat=' '">
+				<textarea ng-hide="dsCheck" class="form-control" rows="5" id="comment" ng-model="dailyStat"></textarea>
+			</div>
+        </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-default" ng-click="clickNo()">No</button>
+                <button class="btn btn-primary" ng-click="clickOk()">Yes</button>
+            </div>
+    </script>
+    <script type="text/ng-template" id="confirmDeleteAdmin.html">
+        <div class="modal-header">
+            <span class="popup-title" style="border-bottom:none;"><p>Are you sure you want to delete?</p></span>
+        </div>
+        <div class="modal-footer" style="text-align:inherit">
+            <button class="btn btn-default" ng-click="clickNoDlt()">No</button>
+            <button style="float: right;" class="btn btn-primary" ng-click="clickYesDlt()">Yes</button>
+        </div>
+    </script>

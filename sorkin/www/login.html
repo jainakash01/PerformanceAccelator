@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html ng-app="performAccel">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Performance Accelerator</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/checkbox.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+     <link href="assets/css/star-ratingnew.css"  rel="stylesheet" type="text/css"/>
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <!-- Notification STYLES-->
+    <link href="assets/css/notification.css"  rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.realperson.css">
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+
+<div id="ohsnap">
+
+</div>
+<div ng-controller="loginCtrl">
+
+<nav class="navbar navbar-default navbar-cls-top-login" role="navigation" style="margin-bottom: 0">
+<a class="navbar-brand fade-in one set-padd-login" href="login.html"><span class="set-cursor"><img class="image-logo" src="images/@Stake_Logo.png"/></a>
+	<div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;" class="fade-in one">
+		<!-- <a href="#/login" class="btn btn-danger square-btn-adjust" ng-click="logout()" data-target="#myModal">Login</a> -->
+		<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Login</button> -->
+		<span >
+			<a class="btn btn-danger square-btn-adjust" data-toggle="modal" data-target="#myModal" ng-click="toggleLogin()">Login</a>
+			<a class="btn btn-danger square-btn-adjust" data-toggle="modal" data-target="#myModal1" ng-click="toggleSignup()">Register</a>
+		</span>
+	</div>
+</nav>
+
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top:40px;" ng-show="showsignup">
+		<div class="modal-dialog" role="document">
+	    <div class="modal-content">
+		    <div class="modal-header1">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+		    </div>
+	      	<div class="modal-body11">
+		        <div>
+				    <div>
+				    	<div class="row">
+				            <div class="col-md-12 page-title">
+				    			<h1>Sign up</h1>
+				    		</div>
+				    	</div>
+				    	<hr>
+						<div class="form">
+						  	<div class="thumbnail"><img src="assets/img/hat.svg"/></div>
+							<form class="register-form">
+
+							    <input type="text" ng-class="invalidFName ? 'textbox-error' : 'textbox'" id="fname" placeholder="First name" ng-model="fname" ng-blur="validateFName()" />
+							    	<div class="error-noti" ng-show="invalidFName">Error: Please enter First Name</div>
+
+							    <input type="text" ng-class="invalidLName ? 'textbox-error' : 'textbox'" id="lname" placeholder="Last name" ng-model="lname" ng-blur="validateLName()"/>
+							    	<div class="error-noti" ng-show="invalidLName">Error: Please enter Last Name</div>
+
+							    <input type="text" ng-class="invalidComp ? 'textbox-error' : 'textbox'" id="company" placeholder="Company" ng-model="company" ng-blur="validateComp()"/>
+							    	<div class="error-noti" ng-show="invalidComp">Error: Please enter Company Name</div>
+
+							    <input type="text" ng-class="invalidRole ? 'textbox-error' : 'textbox'" id="role" placeholder="Role" ng-model="role" ng-blur="validateRole()"/>
+							    	<div class="error-noti" ng-show="invalidRole">Error: Please enter Role</div>
+
+							    <input type="number" ng-class="invalidPhone ? 'textbox-error' : 'textbox'" id="phoneNumber" placeholder="Phone Number" ng-model="phoneNumber" ng-blur="validatePhone()"/>
+							    	<div class="error-noti" ng-show="invalidPhone">Error: Please enter Phone Number</div>
+
+							    <input type="password" ng-class="invalidPass1 ? 'textbox-error' : 'textbox'" id="login" id="pass" placeholder="password" ng-model="passwordSignUp" ng-blur="validatePassword1()"/>
+							    	<div class="error-noti" ng-show="invalidPass1">Error: Please enter password</div>
+
+							    <input type="password" ng-class="invalidPass2 ? 'textbox-error' : 'textbox'" id="login" id="cpass" placeholder="Confim password" ng-model="cpassword" ng-blur="validatePassword()"/>
+							    	<div class="error-noti" ng-show="invalidPass2">Error: Please enter same password</div>
+
+							    <input type="text" ng-class="invalidEmail2 ? 'textbox-error' : 'textbox'" id="loginemail" placeholder="email" ng-model="email" ng-change="validateEmail(email, 'signup')" ng-blur="validateEmailId()"/>
+							    	<div class="error-noti" ng-show="invalidEmail2">Error: Please enter valid email id</div>
+
+							    <div><span>Please enter the number to complete singup</span></div>
+							    <simple-captcha valid="captchaValid"></simple-captcha>
+
+							    <button style="margin-bottom: 15px;" data-dismiss="modal" ng-click="saveUser()">create</button>
+
+							</form>
+
+							<div class="notification-login" ng-show="shownoti">
+							  	<span class="set-gap"><h3>Thank you {{fname}}</h3></span>
+							  	<span class="set-gap"><p>Please check your {{email}} to continue</p></span>
+							</div>
+
+						  	<div class="notification-login" ng-show="showForgetPassNoti">
+						  		<span class="set-gap"><h3>Thank you {{fname}}</h3></span>
+						  		<span class="set-gap"><p>Your password has been send to {{resetpassemail}}</p></span>
+						  	</div>
+
+						</div>
+						<div id="ohsnap" class="error-login">
+							<!-- <div class="alert alert-red" style="display: block;">Please create a program first !!</div> -->
+						</div>
+					</div>
+				</div>
+	      	</div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top:40px;" ng-show="!showsignup">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+		    <div class="modal-header1">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+		    </div>
+	      	<div class="modal-body11">
+		        <div>
+				    <div>
+				    	<div class="row">
+				            <div class="col-md-12 page-title">
+				    			<h1 ng-if="!showsignup">Login</h1>
+				    			<h1 ng-if="showsignup">Sign up</h1>
+				    		</div>
+				    	</div>
+				    	<hr>
+						<div class="form">
+						  <div class="thumbnail"><img src="assets/img/hat.svg"/></div>
+							<form class="register-form" ng-show="showsignup">
+
+							    <input type="text" ng-class="invalidFName ? 'textbox-error' : 'textbox'" id="fname" placeholder="First name" ng-model="fname" ng-blur="validateFName()" />
+							    	<div class="error-noti" ng-show="invalidFName">Error: Please enter First Name</div>
+
+							    <input type="text" ng-class="invalidLName ? 'textbox-error' : 'textbox'" id="lname" placeholder="Last name" ng-model="lname" ng-blur="validateLName()"/>
+							    	<div class="error-noti" ng-show="invalidLName">Error: Please enter Last Name</div>
+
+							    <input type="text" ng-class="invalidComp ? 'textbox-error' : 'textbox'" id="company" placeholder="Company" ng-model="company" ng-blur="validateComp()"/>
+							    	<div class="error-noti" ng-show="invalidComp">Error: Please enter Company Name</div>
+
+							    <input type="text" ng-class="invalidRole ? 'textbox-error' : 'textbox'" id="role" placeholder="Role" ng-model="role" ng-blur="validateRole()"/>
+							    	<div class="error-noti" ng-show="invalidRole">Error: Please enter Role</div>
+
+							    <input type="number" ng-class="invalidPhone ? 'textbox-error' : 'textbox'" id="phoneNumber" placeholder="Phone Number" ng-model="phoneNumber" ng-blur="validatePhone()"/>
+							    	<div class="error-noti" ng-show="invalidPhone">Error: Please enter Phone Number</div>
+
+							    <input type="password" ng-class="invalidPass1 ? 'textbox-error' : 'textbox'" id="login" id="pass" placeholder="password" ng-model="passwordSignUp" ng-blur="validatePassword1()"/>
+							    	<div class="error-noti" ng-show="invalidPass1">Error: Please enter password</div>
+
+							    <input type="password" ng-class="invalidPass2 ? 'textbox-error' : 'textbox'" id="login" id="cpass" placeholder="Confim password" ng-model="cpassword" ng-blur="validatePassword()"/>
+							    	<div class="error-noti" ng-show="invalidPass2">Error: Please enter same password</div>
+
+							    <input type="text" ng-class="invalidEmail2 ? 'textbox-error' : 'textbox'" id="loginemail" placeholder="email" ng-model="email" ng-change="validateEmail(email, 'signup')" ng-blur="validateEmailId()"/>
+							    	<div class="error-noti" ng-show="invalidEmail2">Error: Please enter valid email id</div>
+
+							    <div><span>Please enter the number to complete singup</span></div>
+							    <simple-captcha valid="captchaValid"></simple-captcha>
+
+							    <button data-dismiss="modal" ng-click="saveUser()">create</button>
+							    <p class="message">Already registered? <a ng-click="showsignup = false" class="pointer-set">Sign In</a></p>
+							</form>
+
+							<div class="notification-login" ng-show="shownoti">
+							  	<span class="set-gap"><h3>Thank you {{fname}}</h3></span>
+							  	<span class="set-gap"><p>Please check your {{email}} to continue</p></span>
+							</div>
+
+							<form class="forgetPass-form" ng-show="showForgetPass">
+							  	<input type="text" ng-class="invalidEmail3 ? 'textbox-error' : 'textbox'" id="resetpassemail" placeholder="email" ng-model="resetpassemail" ng-change="validateEmail(resetpassemail, 'resetpass')"/>
+							  	<div class="error-noti" ng-show="invalidEmail3">Error: Please enter valid email id</div>
+
+							  	<button ng-click="resetPass()">Send</button>
+							  	<p class="message"><a ng-click="showsignup = false" class="pointer-set">Cancel</a></p>
+							  		<!-- <button ng-click="showForgetPass = false; showsignup = false;">Cancel</button> -->
+							</form>
+
+							<form class="login-form" ng-show="!showsignup">
+
+							    <input type="text" ng-class="invalidEmail ? 'textbox-error' : 'textbox'" id="login" placeholder="username" ng-model="username" ng-change="validateEmail(username, 'login')"/>
+							    	<div class="error-noti" ng-show="invalidEmail">Error: Please enter valid email id</div>
+							    <input type="password" class="textbox" id="pass" placeholder="password" ng-model="password"/>
+							    <div class="error-noti" ng-show="invalidPass"></div>
+							    <button ng-click="signin()">login</button>
+							    <p class="message ">Forgot Password? <a ng-click="showForgetPass = true" class="pointer-set">Reset Password</a></p>
+							    <p class="message ">Not registered? <a ng-click="showsignup = true;showForgetPass = false;" class="pointer-set">Create an account</a></p>
+							</form>
+
+						</div>
+						<div id="ohsnap" class="error-login">
+							<!-- <div class="alert alert-red" style="display: block;">Please create a program first !!</div> -->
+						</div>
+					</div>
+				</div>
+	      	</div>
+	    </div>
+	  </div>
+	</div>
+</div>
+	<div class="home-intro">
+		<div>
+	    	<div class="row fade-in two">
+	            <div class="col-md-12 goal-heading">
+	    			<p>Welcome to i@ccel Performance Accelerator!</p>
+	    		</div>
+	    	</div>
+		</div>
+      	<div class="fade-in two align-center">
+      		<span>
+      			<p>If you do not have an existing account and want to explore this application, please register or contact us at &nbsp;</p>
+      			<p>
+      				<span class="set-cursor"><a><i class="fa fa-envelope-square login-icons"></i>&nbsp; contact@atstakeperformance.com</a></span>
+      			</p>
+			</span>
+      	</div>
+      	<div class="fade-in four align-center">
+      		<span><p>If you have an existing account please login.</p></span>
+      	</div>
+  	</div>
+  	
+  	    <script type="text/ng-template" id="termsAndCondition.html">
+		<div class="modal-header">
+			<span class="popup-title"><p>Terms and Condition</p></span>
+		</div>
+       	<div class="modal-body">
+			<div>
+			<span style="font-size:11px" class="text-primary">Terms and condition setup</span></div>
+			<br>
+		<div class="modal-footer">
+				<button class="btn btn-default" ng-click="ok()">Got it</button>
+                
+            </div>
+    </script>
+
+  	
+
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/ui-bootstrap-tpls.min.js"></script>
+   	<script src="js/URLCONFIG.js"></script>
+	<script type="text/javascript" src="js/jquery.plugin.js"></script>
+	<script type="text/javascript" src="js/jquery.realperson.js"></script>
+	<script src="js/services/tree-service.js"></script>
+	<script src="js/directives/tree-directive.js"></script>
+	<script src="js/directives/inviteRater-tree.js"></script>
+	<script src="js/directives/raterPage-tree.js"></script>
+	<script src="js/directives/ereview-tree.js"></script>
+	<script src="js/directives/acceptInvite-tree.js"></script>
+   	<script src="js/directives/mPreview-tree.js"></script>
+        <script src="js/directives/viewRaterInvite.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/controllers/indexCtrl.js"></script>
+    <script src="js/services/statusCheck.js"></script>
+    <script src="js/services/session.js"></script>
+
+
+    <script src="js/controllers/loginController.js"></script>
+
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="assets/js/notification.js"></script>
+    <script src="assets/js/json-tree.js"></script>
+    <script src="js/star-ratingnew.js"></script>
+
+    <script src="js/json2.js"></script>
+    <script src="js/jstorage.js"></script>
+
+
+</html>

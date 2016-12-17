@@ -1,0 +1,10 @@
+# Third party Python packages
+
+# To install:
+# pip2 install -r requirements.txt -t lib/
+
+GoogleAppEnginePipeline
+google-api-python-client
+gdata
+GoogleAppEngineCloudStorageClient
+jinja2

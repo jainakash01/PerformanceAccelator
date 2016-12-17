@@ -1,0 +1,30 @@
+application: iaccel-atstakeperformance
+version: pin
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+
+- url: /a/.*
+  script: sorkin.signature.api.wsgi
+
+- url: /login
+  static_files: www/login.html
+  upload: www/login.html
+
+
+- url: /
+  static_files: www/index.html
+  upload: www/index.html
+
+- url: /
+  static_dir: www
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+
+- name: pycrypto
+  version: "2.6"

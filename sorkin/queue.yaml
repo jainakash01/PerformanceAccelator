@@ -1,0 +1,10 @@
+queue:
+- name: default
+  rate: 15/s
+  bucket_size: 20
+
+- name: apply
+  rate: 30/s
+  bucket_size: 40
+  max_concurrent_requests: 30
+

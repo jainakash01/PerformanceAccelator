@@ -1,0 +1,137 @@
+<div id="wrapper">
+    <div ng-include="'partials/sidebar-template.html'"></div>
+        <div class="content animated bounceInUp" id="page-wrapper">
+		    <div id="page-inner">
+		    	<div class="row fade-in one">
+		            <div class="col-md-12 goal-heading">
+		    			<p>Build Program</p>
+		    		</div>
+		    	</div>
+		    	<hr>
+
+				<div class="row">
+
+					<div class="col-md-5 col-sm-5 col-xs-12 " style="word-wrap: break-word;">
+				    	<h4>Coach Email: </h4>
+					</div>
+					<div class="col-md-7 col-sm-7 col-xs-12 font-bold">
+				    	<input type="text" class="textboxea set-padd" id="coachId" placeholder="Coach Email Id" ng-model="coachId"/>
+					</div>
+				</div>
+				<hr>
+			  <div class="row">
+				    <div class="col-md-5 col-sm-5 col-xs-12">
+				    	<h4>Training cycle (number of days)</h4>
+					</div>
+					<div class="col-md-7 col-sm-7 col-xs-12 font-bold">
+				    	<input type="number" class="textboxea set-padd" id="inputcycle" placeholder="Training cycle" ng-model="inputCycle"/>
+					</div>
+				</div><hr>
+				<div class="row">
+					<div class="set-width-tree">
+						<span><p>Build PA here :</p><span>
+						<div class="program-area">
+							<ul class="tree">
+		       					<node-tree children="tree"></node-tree>
+		   					</ul>
+		   					 <!-- <span class="col-sm3"><a class="btn btn-default" ng-click="saveToDb()">Save to Database</a></span> -->
+		   				</div>
+	   				</div>
+   				</div>
+
+   				<div class="row" style="margin-top:15px;">
+   					<div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-4 col-xs-10 formelem1">
+                        <div class="panel11">
+                            <div class="text-box" >
+                                <a class="btn btn-primary btn-lg set-width" ng-click="cancel()">Back</a>
+                            </div>
+                        </div>
+		            </div>
+
+	               	<div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-4 col-xs-10 formelem1">
+	                    <div class="panel11">
+	                        <div class="text-box" >
+	                            <a class="btn btn-danger btn-lg set-width" ng-click="deleteItem()">Delete Program</a>
+	                        </div>
+	                    </div>
+		            </div>
+		            <div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-4 col-xs-10 formelem1">
+                        <div class="panel11">
+                            <div class="text-box" >
+                                <a class="btn btn-primary btn-lg set-width" ng-click="saveToDb()">Save My Program</a>
+                            </div>
+                        </div>
+		            </div>
+
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+
+    <script type="text/ng-template" id="NextActionSave.html">
+		<div class="modal-header">
+			<span class="popup-title"><p>Program Saved Successfully</p></span>
+		</div>
+       	<div class="modal-body">
+			<div>Do you wish to add Raters Now ? <br><br>
+			<span style="font-size:11px" class="text-primary">You can setup your raters by clicking 360 tab at any time</span></div>
+			<br>
+		<div class="modal-footer">
+				<button class="btn btn-default" ng-click="StayHere()">No</button>
+                <button class="btn btn-primary" ng-click="Go360()">Yes</button>
+            </div>
+    </script>
+
+
+
+    <script type="text/ng-template" id="AddNewItem.html">
+		<div class="modal-header">
+			<span class="popup-title"><p>Add new Item</p></span>
+			<span class="popup-content"><p>
+				<span ng-if="itemType == 'Organisational Goal' " class="default-cursor">Organizational Goal</span>
+		        	<span ng-if="itemType != 'Organisational Goal' " class="default-cursor">{{itemType}}</span>
+			</p></span>
+		</div>
+       	<div class="modal-body">
+       		<fieldset class="form-group">
+				<select class="form-control" ng-model="selectedItem">
+					<option ng-repeat="item in list">{{item}}</option>
+				</select>
+			</fieldset>
+			<div ng-show="selectedItem == 'Custom'">
+				<input type="text" class="textboxeapop set-padd" id="customrootfact" placeholder="Custom {{itemType}}" ng-model="customGoal"/>
+			</div>
+
+			<div ng-show="itemType == 'Root Factor'">
+				<hr>
+				<span>Daily Statement</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not Required: <input type="checkbox" id="dsCheck" ng-model="dsCheck" ng-change="dailyStat=' '">
+				<textarea ng-hide="dsCheck" class="form-control" rows="5" id="comment" ng-model="dailyStat"></textarea>
+			</div>
+        </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-default" ng-click="clickNo()">No</button>
+                <button class="btn btn-primary" ng-click="clickOk()">Yes</button>
+            </div>
+    </script>
+
+    <script type="text/ng-template" id="confirmDelete.html">
+		<div class="modal-header">
+			<span class="popup-title" style="border-bottom:none;"><p>Are you sure you want to delete?</p></span>
+		</div>
+        <div class="modal-footer" style="text-align:inherit">
+            <button class="btn btn-default" ng-click="clickNoDlt()">No</button>
+            <button style="float: right;" class="btn btn-primary" ng-click="clickYesDlt()">Yes</button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="confirmDeleteTree.html">
+		<div class="modal-header">
+			<span class="popup-title" style="border-bottom:none;"><p>Are you sure you want to delete?</p></span>
+		</div>
+        <div class="modal-footer" style="text-align:inherit">
+            <button class="btn btn-default" ng-click="clickNoDlt()">No</button>
+            <button style="float: right;" class="btn btn-primary" ng-click="clickYesDlt()">Yes</button>
+        </div>
+    </script>

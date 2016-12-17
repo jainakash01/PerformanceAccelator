@@ -1,0 +1,208 @@
+<div>
+    <div id="ohsnap">
+        <!-- <div class="alert alert-red" style="display: block;">Please create a program first !!</div> -->
+    </div>
+</div>
+<div id="wrapper">
+    <div ng-include="'partials/sidebar-template.html'"></div>
+    <div class="content animated bounceInUp" id="page-wrapper" ng-init="daysLeftPosi = True">
+            <div id="page-inner">
+
+                <div class="row fade-in three">
+                    <div class="col-md-12 goal-heading">
+                        <p>Goals for the Day</p>
+                    </div>
+                </div>
+                <div class="row fade-in three">
+                    <div class="col-md-6 col-sm-6 col-xs-6 show-cursor">
+                        <div class="panel panel-back noti-box hvr-float-shadow" ng-enabled = {{enableMorn}}  ng-click="openMPreview()">
+                            <span class="icon-box bg-color-red set-icon" ng-show="!mpCompleted">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                            <span class="icon-box bg-color-green set-icon" ng-show="mpCompleted">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                            <div class="text-box" >
+                                <p class="main-text">Morning Preview</p>
+                                <!-- <p class="text-muted">Messages</p> -->
+                            </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6 show-cursor">
+                        <div class="panel panel-back noti-box hvr-float-shadow" ng-click="openEReview()">
+                            <span class="icon-box bg-color-red set-icon" ng-show="!erCompleted">
+                                <i class="fa fa-bars"></i>
+                            </span>
+                            <span class="icon-box bg-color-green set-icon" ng-show="erCompleted">
+                                <i class="fa fa-bars"></i>
+                            </span>
+                            <div class="text-box" >
+                                <p class="main-text">Evening Review</p>
+                                <!-- <p class="text-muted">Remaining</p> -->
+                            </div>
+                         </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="panel1 panel-back noti-box" style="text-align: center; padding-left: 210px;">
+                            <span class="icon-box1">
+                                <i class="fa fa-envelope-cancel"></i>
+                            </span>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="panel1 panel-back noti-box" style="text-align: center; padding-left: 210px;">
+                            <span class="icon-box1">
+                                <i class="fa fa-envelope-cancel"></i>
+                            </span>
+                         </div>
+                    </div>
+                </div> -->
+                 <!-- /. ROW  -->
+                <hr />
+                <div class="row fade-in four">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-back progress-box">
+                            <div class="text-box" >
+                                <div class="progress remove-margin">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{progPerc}}%">
+                                        <span class="sr-only">45% Complete</span>
+                                    </div>
+                                </div>
+                                <div ng-show="daysLeftPosi"><h4 class="remove-padding">Training Cycle: {{daysLeft + 1}} Days Left</h4></div>                            
+                                <div ng-show="!daysLeftPosi"><h4 class="remove-padding">Training Cycle: Training Completed	</h4></div>                            
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row fade-in four">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-back progress-box">
+                            <div class="text-box" >
+                                <div class="progress remove-margin">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{mPrevPerc}}%">
+                                        <span class="sr-only">90% Complete</span>
+                                    </div>
+                                </div>
+                                <div><h4 class="remove-padding">Morning Preview Engagement: {{mPrevPerc}}% submitted</h4></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row fade-in four">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-back progress-box">
+                            <div class="text-box" >
+                                <div class="progress remove-margin">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{eRevPerc}}%">
+                                        <span class="sr-only">45% Complete</span>
+                                    </div>
+                                </div>
+                                <div><h4 class="remove-padding">Evening Review Engagement: {{eRevPerc}}% Submitted</h4></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+			<hr>
+
+
+             		    	<div class="panel-set panel-back noti-box-set fade-in one" id="inviteBlock">
+		    		<div class="row" ng-click="collapse(0,'showEntriesFlag')">
+			            <div class="col-md-12 hover-effect">
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-camera"></i>
+				                </span>
+				            </div>
+			    			<p>View Entries</p>
+			    		</div>
+			    	</div>
+			    	<div class="panel-option" ng-show="showEntriesFlag">
+			    		<hr>
+
+				    	  <div class="col-md-6 col-sm-6 col-xs-6">
+                               <span class = "col-sm-3" style="font-weight:800"> Select Day: </span>  <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control"  />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+					   	<br>
+
+					    <hr>
+
+   					<div class="row">
+						<div class="set-width-tree">
+							<div class="program-area">
+								<ul class="tree" style="pointer-events: none;">
+									<node-tree-eve-review children="ratedTree.user_ratings"></node-tree-eve-review>
+			   					</ul>
+			   				</div>
+		   				</div>
+		   				     <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div ng-show=show4Quest>
+                                    <span class="comment-span-coach">Day's Biggest Challenge: {{ratedTree.biggest_chall}} </span>
+                                    <span class="comment-span-coach">How I Addressed It: {{ratedTree.way_addresed}} </span>
+                                    <span class="comment-span-coach">What I did Really Well Today?: {{ratedTree.really_well}} </span>
+                                    <span class="comment-span-coach">Reason to Be Grateful: {{ratedTree.reason_grateful}} </span>
+                                </div>
+                            </div>
+
+   					</div>
+
+					    <hr>
+
+					</div>
+		    	</div>
+
+
+
+                <!-- <div class="row fade-in six">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="panel panel-back noti-box">
+                            <div class="set-marginleft" >
+                                <a href="#/mpreview" class="btn btn-primary btn-lg">Morning Preview</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="panel panel-back noti-box">
+                            <div class="set-marginleft" >
+                                <a href="#/ereview" class="btn btn-primary btn-lg">Evening Review</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+ -->
+                <!-- <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-back noti-box">
+                            <div class="text-box" >
+                                <a href="#/ereview" class="btn btn-primary btn-lg">Evening Review</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>   -->
+            </div>
+        </div>
+</div>
+
+   <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker(
+                		{
+                            format: 'YYYY/MM/DD'
+                      }).on("dp.hide",function(e){
+                    	  showEntryData();
+                      })
+            });
+        </script>

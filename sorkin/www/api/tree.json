@@ -1,0 +1,96 @@
+[
+  {
+    "name": "Vegetarian Recipes",
+    "checked": false,
+    "children": [
+      {
+        "name": "Fruits",
+        "checked": false,
+        "children": [
+          {
+            "name": "Dry Fruits",
+            "checked": false,
+            "children": [
+              {
+                "name": "Almond",
+                "checked": false
+              },
+              {
+                "name": "Apricot",
+                "checked": false
+              },
+              {
+                "name": "Cashewnuts",
+                "checked": false
+              },
+              {
+                "name": "Dates",
+                "checked": false
+              },
+              {
+                "name": "Walnuts",
+                "checked": false
+              },
+              {
+                "name": "Peanuts",
+                "checked": false
+              },
+              {
+                "name": "Pistachios",
+                "checked": false
+              }
+            ]
+          },
+          {
+            "name": "Fresh Fruits",
+            "checked": false,
+            "children": [
+              {
+                "name": "Apple",
+                "checked": false
+              },
+              {
+                "name": "Banana",
+                "checked": false
+              },
+              {
+                "name": "Orange",
+                "checked": false
+              },
+              {
+                "name": "Mango",
+                "checked": false
+              },
+              {
+                "name": "Grapes",
+                "checked": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Soup",
+        "checked": false,
+        "children": [
+          {
+            "name": "Tomato Soup",
+            "checked": false
+          },
+          {
+            "name": "Loaded Potato Soup",
+            "checked": false
+          },
+          {
+            "name": "French Onion Soup",
+            "checked": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Non-vegetarian Recipes",
+    "checked": false
+  }
+]

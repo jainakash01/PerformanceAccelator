@@ -1,0 +1,36 @@
+<li>
+	<div class="hover-effect-tree" id="treediv1" ng-class="{'odd-div':$first}">
+	    <span class="expand-tree show-cursor" ng-if="$index != 0"  ng-click="toggleVisibility(nodeir)"> {{ ( nodeir.childrenVisibility && nodeir.children.length ) ? '+' : '-' }}</span>
+
+	    <input ng-if="$index != 0"  ng-click="checkNode(nodeir)" type="checkbox" ng-checked="nodeir.checked">
+
+	    <span class="align-tree" ng-init="nodeir.name.DSforRater = nodeir.name.DS">
+	    	<span class="tree-content" ng-if="$index != 0">
+	      		<span ng-if="nodeir.itemType != 'Root Factor' ">{{ nodeir.name }} </span>
+	      		<span ng-if="nodeir.itemType == 'Root Factor' " >{{ nodeir.name.name }} &nbsp;&nbsp;  <span ng-if = "!nodeir.name.editDS"> {{nodeir.name.DS}} </span> &nbsp;&nbsp; <i ng-click="nodeir.name.editDS=true" class="fa fa-edit"></i></span>
+	        		<textarea  ng-if="nodeir.name.editDS" class="form-control" rows="5" id="comment" ng-model="nodeir.name.DSforRater"></textarea>
+	        </span>
+	        <small ng-if="$index == 0">
+	        	<span id="markspan">
+		        	<span ng-if="nodeir.itemType == 'Organisational Goal' ">
+		        		<img src="images/og.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodeir.itemType == 'Individual Performance Goal' " >
+		        		<img src="images/ipg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodeir.itemType == 'Individual Development Goal' " >
+		        		<img src="images/idg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodeir.itemType == 'Skills and Competencies' " >
+		        		<img src="images/skills.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodeir.itemType == 'Root Factor' " >
+		        		<img src="images/rf.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodeir.itemType == 'Organisational Goal' " class="default-cursor">Organizational Goal</span>
+		        	<span ng-if="nodeir.itemType != 'Organisational Goal' " class="default-cursor">{{nodeir.itemType}}</span>&nbsp;&nbsp;
+		        </span>
+	        </small>
+	    </span>
+	</div>
+</li>

@@ -1,0 +1,135 @@
+<div id="wrapper">
+    <div ng-include="'partials/sidebar-template.html'"></div>
+    <div class="content animated bounceInUp" id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12 goal-heading">
+                    <p>Coach</p>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                    <div class="col-md-12 sub-heading">
+                        <p>Select a person to Coach :</p>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+                    <fieldset class="form-group">
+                        <select class="form-control set-height" id="personToBeRated" ng-model="personToBeRated" ng-change="changedPerson(personToBeRated)">
+                          <option ng-repeat="person in allPersons" >{{person}}</option>
+                        </select>
+                    </fieldset>
+                </div>
+            </div>
+
+
+  	                <div class="row">
+                        <div class="set-width-tree">
+                            <span><p>Program</p></span>
+                            <div class="program-area">
+                                <ul class="tree">
+                                    <node-tree children="tree"></node-tree>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-md-3 col-sm-3 col-xs-6 formelem1">
+    	                    <div class="panel noti-box">
+    	                        <div class="text-box" >
+    	                            <a class="btn btn-danger btn-lg set-width" ng-click="deleteItem()">Delete </a>
+    	                        </div>
+    	                    </div>
+    		            </div>
+    		            <div class="col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-md-3 col-sm-3 col-xs-6 formelem1">
+                            <div class="panel noti-box">
+                                <div class="text-box" >
+                                    <a class="btn btn-primary btn-lg set-width" ng-click="saveToDb()">Save item</a>
+                                </div>
+                            </div>
+    		            </div>
+                    </div>
+                    <hr>
+
+
+  	                <div class="row">
+                        <div class="set-width-tree">
+                            <span><p>Ratings</p></span>
+                            <div class="col-md-4 col-sm-4 col-xs-6">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-6">
+                                <a class="btn btn-primary btn-lg set-width" ng-click="datChanged()">View Rating</a>
+                            </div>
+                            <hr>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="program-area">
+                                    <ul class="tree"  style="pointer-events: none;">
+                                        <node-tree-eve-review children="ratedTree.user_ratings"></node-tree-eve-review>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div ng-show=show4Quest>
+                                    <span class="comment-span-coach">Day's Biggest Challenge: {{ratedTree.biggest_chall}} </span>
+                                    <span class="comment-span-coach">How I Addressed It: {{ratedTree.way_addresed}} </span>
+                                    <span class="comment-span-coach">What I did Really Well Today?: {{ratedTree.really_well}} </span>
+                                    <span class="comment-span-coach">Reason to Be Grateful: {{ratedTree.reason_grateful}} </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <hr>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker(
+                		{
+                            format: 'YYYY/MM/DD'
+                      });
+            });
+        </script>
+
+    <script type="text/ng-template" id="AddNewItem.html">
+		<div class="modal-header">
+			<span class="popup-title"><p>Add new Item</p></span>
+			<span class="popup-content"><p>
+<span ng-if="itemType == 'Organisational Goal' " class="default-cursor">Organizational Goal</span>
+		        	<span ng-if="itemType != 'Organisational Goal' " class="default-cursor">{{itemType}}</span>
+			</p></span>
+		</div>
+       	<div class="modal-body">
+       		<fieldset class="form-group">
+				<select class="form-control" ng-model="selectedItem">
+					<option ng-repeat="item in list">{{item}}</option>
+				</select>
+			</fieldset>
+			<div ng-show="selectedItem == 'Custom'">
+				<input type="text" class="textboxeapop set-padd" id="customrootfact" placeholder="Custom {{itemType}}" ng-model="customGoal"/>
+			</div>
+
+			<div ng-show="itemType == 'Root Factor'">
+				<hr>
+				<span>Daily Statement</span>
+				<textarea class="form-control" rows="5" id="comment" ng-model="dailyStat"></textarea>
+			</div>
+        </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-default" ng-click="clickNo()">No</button>
+                <button class="btn btn-primary" ng-click="clickOk()">Yes</button>
+            </div>
+    </script>

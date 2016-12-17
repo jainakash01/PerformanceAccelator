@@ -1,0 +1,47 @@
+<li>
+	<div class="hover-effect-tree" id="treediv1" ng-class="{'odd-div':$first}">
+	    <span class="expand-tree show-cursor" ng-if="$index != 0"  ng-click="toggleVisibility(node)"> {{ ( node.childrenVisibility && node.children.length ) ? '+' : '-' }}</span>
+
+	    <!-- <input ng-if="$index != 0" ng-show="node.itemType == 'Root Factor' "  ng-click="checkNode(node)" type="checkbox" ng-checked="node.checked"> -->
+
+	    <span class="align-tree">
+	    	<span class="tree-content" ng-if="$index != 0">
+		      	<span ng-if="node.itemType != 'Root Factor' ">{{ node.name }} &nbsp;&nbsp;<i class="show-cursor fa fa-edit" ng-click="deleteJson(node)"></i>&nbsp;&nbsp;<i class="show-cursor fa fa-trash" ng-click="deleteBranch(node)"></i>  </span>
+		      	<span ng-if="node.itemType == 'Root Factor' ">{{ node.name.name }} &nbsp;&nbsp;
+		        	<img src="images/ds.svg" class="tree-dir-img">
+			      	{{node.name.DS}} &nbsp;&nbsp; 
+			      	<i class="show-cursor fa fa-edit" ng-click="deleteJson(node)"></i>&nbsp;&nbsp;<i class="show-cursor fa fa-trash" ng-click="deleteBranch(node)"></i> 
+		      	</span>
+	        </span>
+	        <span ng-if="$index == 0">
+	        	<span id="markspan">
+		        	<span ng-if="node.itemType == 'Organisational Goal' ">
+		        		<img src="images/og.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="node.itemType == 'Individual Performance Goal' " >
+		        		<img src="images/ipg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="node.itemType == 'Individual Development Goal' " >
+		        		<img src="images/idg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="node.itemType == 'Skills and Competencies' " >
+		        		<img src="images/skills.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="node.itemType == 'Root Factor' " >
+		        		<img src="images/rf.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="node.itemType == 'Organisational Goal' " class="default-cursor">Organizational Goal</span>
+		        	<span ng-if="node.itemType != 'Organisational Goal' " class="default-cursor">{{node.itemType}}</span>
+		        </span>
+
+		       <!--  <span ng-if="node.itemType == 'Organisational Goal' ">
+	        		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	        	</span>
+	        	<span ng-if="node.itemType == 'Root Factor' ">
+	        		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	        	</span>&nbsp;&nbsp;&nbsp;&nbsp; -->
+		        <span class="set-plus-pos"><i class="show-cursor fa fa-plus" ng-click="addNewJson(node)"></i></span>
+		    </span>
+	    </span>
+	</div>
+</li>

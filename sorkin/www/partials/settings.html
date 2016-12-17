@@ -1,0 +1,172 @@
+<div  ng-cloak id="wrapper">
+    <div ng-include="'partials/sidebar-template.html'"></div>
+        <div class="content animated bounceInUp" id="page-wrapper">
+		    <div id="page-inner">
+		    	<div class="row fade-in one">
+		            <div class="col-md-12 goal-heading">
+		    			<p>Settings</p>
+		    		</div>
+		    	</div>
+		    	<hr><!-- <input type="file" file-dialog /> -->
+		    	<div class="panel-set panel-back noti-box-set fade-in one" id="profileBlock">
+		    		<div class="row" ng-click="collapse(0,'profileBlock')">
+			            <div class="col-md-12 hover-effect" >
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-profile"></i>
+				                </span>
+				            </div>
+			    			<p>Profile</p>
+			    		</div>
+			    	</div>
+			    	<div class="panel-option" ng-show="showProfile">
+				    	<div class="row">
+				    		<div class="col-md-12">
+					            <img src="{{userPicUrl}}" class="user-image img-responsive profile-image" ng-click="addNewJson">
+					            <span class="edit-image" ng-show="showChangeIcon">
+				                    <i class="fa fa-pencil"></i>
+				                </span>
+				                <div ng-show="showEditor">
+				                	<hr>
+					                <form action="{{uploadUrl}}" method="POST" enctype="multipart/form-data">
+								  		<span class="span-upload">Upload File: </span>
+								  		<input type="file" name="file" id="file-1" class="input-file-marg"><br>
+								  		<label for="file-1" class="file-input"><i class="fa fa-upload"></i></label>
+								  		<input class="btn btn-primary btn-lg set-width" type="submit" name="submit" value="Submit" style="display: block;">
+									</form>
+								</div>
+					    	</div>
+					    </div>
+					    <hr>
+					    <div class="row">
+				    		<div class="col-md-4 col-sm-4 col-xs-12 font-bold">
+				    			<h4>Full Name :</h4>
+					    	</div>
+					    	<div class="col-md-7 col-sm-7 col-xs-12">
+					    		<h4 ng-hide="showEditor">{{userName}}</h4>
+					    		<input ng-show="showEditor" type="text" class="textboxea set-padd" id="inputcycle"  ng-model="userNameEdit"/>
+					    	</div>
+					    </div>
+					    <hr>
+
+	    					<div class="row" >
+				    		<div class="col-md-4 col-sm-4 col-xs-12 font-bold">
+				    			<h4>Change Password:</h4>
+					    	</div>
+					    	<div class="col-md-7 col-sm-7 col-xs-12">
+					    		<h4><input class="input-text-label"  ng-hide="showEditor" type="password" ng-disabled= "true" ng-model="userPassword"></input></h4>
+					    		<input ng-show="showEditor" type="password" class="textboxea set-padd" id="newPasswordEdit"  ng-model="newPasswordEdit"/>
+					    	</div>
+					        </div>
+
+
+					    <hr>
+					        <div class="row">
+				    		<div class="col-md-4 col-sm-4 col-xs-12 font-bold">
+					    		<h4>Phone Number :</h4>
+					    	</div>
+					    	<div class="col-md-7 col-sm-7 col-xs-12">
+					    		<h4 ng-hide="showEditor">{{phoneNumber}}</h4>
+					    		<input ng-show="showEditor" type="number" class="textboxea set-padd" id="phoneNumberEdit"  ng-model="phoneNumberEdit"/>
+					    	</div>
+					    </div>
+					    <hr>
+					    <div class="row">
+				    		<div class="col-md-4 col-sm-4 col-xs-12 font-bold">
+					    		<h4>Company Name :</h4>
+					    	</div>
+					    	<div class="col-md-7 col-sm-7 col-xs-12">
+					    		<h4 ng-hide="showEditor">{{company}}</h4>
+					    		<input ng-show="showEditor" type="text" class="textboxea set-padd" id="inputcycle"  ng-model="companyEdit"/>
+					    	</div>
+					    </div>
+					    <hr>
+					    <div class="row">
+				    		<div class="col-md-4 col-sm-4 col-xs-12  font-bold">
+					    		<h4>Role :</h4>
+					    	</div>
+					    	<div class="col-md-7 col-sm-7 col-xs-12">
+					    		<h4 ng-hide="showEditor">{{role}}</h4>
+					    		<input ng-show="showEditor" type="text" class="textboxea set-padd" id="inputcycle"  ng-model="roleEdit"/>
+					    	</div>
+					    </div>
+					    <hr>
+					    <div class="row">
+				    		<div class="col-md-4 col-sm-4 col-xs-12  font-bold">
+					    		<h4>Coach ID :</h4>
+					    	</div>
+					    	<div class="col-md-7 col-sm-7 col-xs-12">
+					    		<h4 ng-hide="showEditor">{{coachId}}</h4>
+
+					    		<input ng-show="showEditor" type="text" class="textboxea set-padd" id="coachId"  ng-model="coachEdit"/>
+					    	</div>
+					    </div>
+					    <hr>
+					    <div class="row">
+				    		<div class="col-md-4 col-sm-4 col-xs-12  font-bold">
+					    		<h4>Training Cycle:</h4>
+					    	</div>
+					    	<div class="col-md-7 col-sm-7 col-xs-12">
+					    		<h4>{{trainingCycle}} Days</h4>
+
+<!-- 					    		<input ng-show="showEditor" type="text" class="textboxea set-padd" id="inputcycle"  ng-model="inputCycleEdit"/> -->
+					    	</div>
+					    </div>
+						<hr>
+					    <!-- <div class="row" style="margin-top:15px;">
+		   					<div class="col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-md-3 col-sm-3 col-xs-3 formelem1">
+		                        <div class="panel noti-box">
+		                            <div class="text-box" >
+		                                <a class="btn btn-danger btn-lg set-width" ng-click="cancel()">Back</a>
+		                            </div>
+		                        </div>
+				            </div>
+
+			               	<div class="col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-md-3 col-sm-3 col-xs-3 formelem1">
+			                    <div class="panel noti-box">
+			                        <div class="text-box" >
+			                            <a class="btn btn-primary btn-lg set-width" ng-click="edit()">Edit</a>
+			                        </div>
+			                    </div>
+				            </div>
+				            <div class="col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-md-3 col-sm-3 col-xs-3 formelem1">
+		                        <div class="panel noti-box">
+		                            <div class="text-box" >
+		                                <a class="btn btn-primary btn-lg set-width" ng-click="saveToDb()">Save</a>
+		                            </div>
+		                        </div>
+				            </div>
+				        </div> -->
+
+				        <div class="row" style="margin-top:15px;">
+		   					<div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-4 col-xs-10 formelem1">
+		                        <div class="panel11">
+		                            <div class="text-box" >
+		                                <a class="btn btn-danger btn-lg set-width" ng-click="cancel()">Back</a>
+		                            </div>
+		                        </div>
+				            </div>
+
+			               	<div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-4 col-xs-10 formelem1">
+			                    <div class="panel11">
+			                        <div class="text-box" >
+			                            <a class="btn btn-primary btn-lg set-width" ng-click="edit()">Edit</a>
+			                        </div>
+			                    </div>
+				            </div>
+				            <div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-4 col-xs-10 formelem1">
+		                        <div class="panel11">
+		                            <div class="text-box" >
+		                                <a class="btn btn-primary btn-lg set-width" ng-click="saveToDb()">Save</a>
+		                            </div>
+		                        </div>
+				            </div>
+
+				        </div>
+
+					</div>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+</div>

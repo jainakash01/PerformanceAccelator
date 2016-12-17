@@ -1,0 +1,70 @@
+<div id="wrapper">
+    <div ng-include="'partials/sidebar-template.html'"></div>
+    <div class="content animated bounceInUp" id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12 goal-heading">
+                    <p>Review</p>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                    <div class="col-md-12 sub-heading">
+                        <p>Select a person to rated :</p>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 font-bold formelem">
+                    <fieldset class="form-group">
+                        <select class="form-control set-height" id="personToBeRated" ng-model="personToBeRated" ng-change="changedPerson(personToBeRated)">
+                          <option ng-repeat="person in allPersons" >{{person.rating_for}}</option>
+                        </select>
+                    </fieldset>
+                </div>
+            </div>
+
+
+
+  	                <div class="row" ng-if="personToBeRated != ' Please select...'">
+                        <div class="set-width-tree">
+                            <span><p>Please rate for following goals</p></span>
+                            <div class="program-area">                          
+                                <ul class="tree">
+                                    <node-tree-rater-page children="tree"></node-tree-rater-page>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>  
+
+
+
+<!--              <div class="row" style="margin-top:20px;" ng-repeat = "goal in concernedData">
+                    <div class="col-md-4 col-sm-4 col-xs-12 formelemep">
+                        <div class="checkbox1 checkbox-primary1">
+                            <label>{{goal.rootFact}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12 formelemep">
+                        <div star-rating ng-model="goal.rating" max="5"></div>
+                            <p> </p>
+                    </div>
+                    <hr>
+                </div> -->
+
+
+            <div class="row">
+                <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-3 col-md-9 col-sm-10 col-xs-12 formelem">
+                    <div class="panel noti-box">
+                        <div class="text-box" >
+                            <a class="btn btn-primary btn-lg" ng-click="submitReview()">Submit Rater's Rating</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

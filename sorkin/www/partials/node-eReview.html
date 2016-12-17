@@ -1,0 +1,40 @@
+<li>
+	<div class="hover-effect-tree" id="treediv1" ng-class="{'odd-div':$first}">
+	    <span class="expand-tree show-cursor" ng-if="$index != 0"  ng-click="toggleVisibility(nodeer)"> {{ ( nodeer.childrenVisibility && nodeer.children.length ) ? '+' : '-' }}</span>
+
+	    <span class="align-tree">
+	    	<span class="tree-content" ng-if="$index != 0">
+		      	<span ng-if="nodeer.itemType != 'Root Factor' " >{{ nodeer.name }} </span>
+		      	<span ng-if="nodeer.itemType == 'Root Factor' ">{{ nodeer.name.name }} &nbsp;&nbsp; {{nodeer.name.DS}}
+		      		<!-- <div ng-click="starWasClickedEn()" star-rating ng-model="nodeer.rating" max="5"></div> -->
+		      		<div>
+		      			<input id="input-21b" value="0" type="number" class="rating" min=0 max=5 step=1 data-size="xs" ng-model="nodeer.rating">
+		      			<textarea id ="text" class="star-text-area" type="text" ng-model="nodeer.comments" style="color:black" placeholder="Comments"></textarea>
+		      		</div>
+		      	</span>
+	        </span>
+
+	        <small ng-if="$index == 0">
+	        	<span id="markspan">
+	        		<span ng-if="nodeer.itemType == 'Organisational Goal' ">
+		        		<img src="images/og.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodeer.itemType == 'Individual Performance Goal' " >
+		        		<img src="images/ipg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodeer.itemType == 'Individual Development Goal' " >
+		        		<img src="images/idg.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodeer.itemType == 'Skills and Competencies' " >
+		        		<img src="images/skills.svg" class="tree-dir-img">
+		        	</span>
+		        	<span ng-if="nodeer.itemType == 'Root Factor' " >
+		        		<img src="images/rf.svg" class="tree-dir-img">
+		        	</span>
+	        		<span ng-if="nodeer.itemType == 'Organisational Goal' ">Organizational Goal</span>
+		        	<span ng-if="nodeer.itemType != 'Organisational Goal' ">{{nodeer.itemType}}</span>&nbsp;&nbsp;
+	        	</span>
+	        </small>
+		</span>
+	</div>
+</li>

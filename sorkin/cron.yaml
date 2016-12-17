@@ -1,0 +1,21 @@
+cron:
+
+#- description: Enforce policies for user signatures
+#  url: /a/apply
+#  schedule: every day 00:00
+#  timezone: America/Denver
+
+#- description: Check conformance with policies for user signatures
+#  url: /a/validate
+#  schedule: every day 00:00
+#  timezone: America/Denver
+
+#- description: Garbage collect old reports.
+#  url: /a/clean_reports
+#  schedule: every day 07:00
+#  timezone: America/Denver
+
+#- description: Check running contexts and close contexts that are now defunct.
+#  url: /a/check_contexts
+#  schedule: every day 08:00
+#  timezone: America/Denver

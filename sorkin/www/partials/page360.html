@@ -1,0 +1,298 @@
+<div  ng-cloak id="wrapper">
+    <div ng-include="'partials/sidebar-template.html'"></div>
+        <div class="content animated bounceInUp" id="page-wrapper">
+		    <div id="page-inner">
+		    	<div class="row fade-in one">
+		            <div class="col-md-12 goal-heading">
+		    			<p>360</p>
+		    		</div>
+		    	</div>
+		    	<hr>
+
+		    	<div class="panel-set panel-back noti-box-set fade-in one" id="inviteBlock">
+		    		<div class="row" ng-click="collapse(1,'inviteBlock')">
+			            <div class="col-md-12 hover-effect">
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-invite"></i>
+				                </span>
+				            </div>
+			    			<p>Invite Raters</p>
+			    		</div>
+			    	</div>
+			    	<div class="panel-option" ng-show="showinviteRater">
+			    		<hr>
+				    	<div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 formelem">
+				    			<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+				    			<div id="email-label">
+				    				<!-- <input type="email" class="textbox-set" id="email" placeholder="email" ng-model="emailId"/> -->
+				    				<input type="text" ng-class="invalidEmailInvite ? 'textbox-error' : 'textbox-set'" id="email" placeholder="email" ng-model="emailId" ng-change="validateEmail(emailId)"/>
+				    					<div class="error-noti" ng-show="invalidEmailInvite">Error: Please enter valid email id</div>
+				    			</div>
+					    	</div>
+					    </div>
+					     <div class="row">
+				    		<div class="col-md-offset-2 col-md-4 col-sm-4 col-xs-12 font-bold">
+					    		<h4>Gap Rating Difference:</h4>
+					    	</div>
+					    	<div class="col-md-4 col-sm-4 col-xs-12">
+					    		<input type="number" class="textboxea set-padd" id="diffRatings"  placeholder="Rating difference" ng-model="gapRatings"/>
+					    	</div>
+					    </div>
+
+
+					        <div class="row">
+				    		<div class="col-md-offset-2 col-md-4 col-sm-4 col-xs-12 font-bold">
+					    		<h4>Rater group:</h4>
+					    	</div>
+					    	<div class="col-md-4 col-sm-4 col-xs-12">
+					     		<fieldset class="form-group">
+									<select class="form-control textboxea set-padd" ng-model="selectedGroup">
+										<option>Peer</option>
+										<option>Superior</option>
+										<option>Boss</option>
+										<option>Report</option>
+										<option>Direct</option>
+										<option>Other</option>
+									</select>
+								</fieldset>
+						    </div>
+					    </div>
+					    
+					       <div class="row">
+				    		<div class="col-md-offset-2 col-md-4 col-sm-4 col-xs-12 font-bold">
+					    		<h4>Comments:</h4>
+					    	</div>
+					    	<div class="col-md-6 col-sm-6 col-xs-12">
+					    		<input type="text" class="textboxea set-padd" id="inviteComments"  placeholder="Comments" ng-model="inviteComments"/>
+					    	</div>
+					    </div>
+					    
+					    
+					    <hr>
+
+   					<div class="row">
+						<div class="set-width-tree">
+							<span><p>Select Raters Scope:</p><span>
+							<div class="program-area">
+								<ul class="tree">
+			       					<node-tree-invite-rater children="tree"></node-tree-invite-rater>
+			   					</ul>
+			   				</div>
+		   				</div>
+   					</div>
+
+					    <hr>
+					    <div class="row" style="padding-bottom:20px;">
+					    	<div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-3 col-md-9 col-sm-10 col-xs-12 formelem">
+					    		<a class="btn btn-primary btn-lg" ng-click="submitReview()">Send Invitation</a>
+					    	</div>
+					    </div>
+					</div>
+		    	</div>
+
+		    	<div class="panel-set panel-back noti-box-set fade-in two" id="manageBlock">
+			    	<div class="row">
+			            <div class="col-md-12 hover-effect" ng-click="collapse(2,'manageBlock')">
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-manage"></i>
+				                </span>
+				            </div>
+			    			<p>Manage Raters</p>
+			    		</div>
+			    	</div>
+
+			    	<div class="panel-option" ng-show="showManage">
+
+				    	<div class="row pointer-set" ng-repeat = "rater in acceptedList" >
+				    		<br>
+				    		<div class="col-md-3 col-sm-4 col-xs-12">
+				    			<img src="assets/img/find_user.png" class="user-image1">
+				    		</div>
+				    		<div class="col-md-4 col-sm-8 col-xs-12 word-break">
+				    			<h4>{{rater.invited}}</h4>
+				    		</div>
+				    		<div class="col-md-3 col-sm-0 col-xs-0">
+				    		</div>
+				    		 <div class="col-md-1 col-sm-6 col-xs-6 padding-set padding-set-res" ng-click="showRaterDtls(rater)">
+				                <span class="icon-image" title="email details">
+				                    <i class="fa fa-eye"></i>
+				                </span>
+							</div>
+				    		 <div class="col-md-1 col-sm-6 col-xs-6 padding-set padding-set-res" ng-click="deleteRater(rater)">
+				                <span class="icon-image" title="email details">
+				                    <i class="fa fa-trash"></i>
+				                </span>
+							</div>
+					    </div>
+
+					    <hr>
+				    	<div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold">
+				    			<h4>Pending</h4>
+					    	</div>
+					    </div>
+					    <hr>
+				 	    <div class="row pointer-set" ng-repeat = "rater in pendingList" >
+				    		<br>
+				    		<div class="col-md-3 col-sm-4 col-xs-12">
+				    			<img src="assets/img/find_user.png" class="user-image1">
+				    		</div>
+				    		<div class="col-md-4 col-sm-8 col-xs-12 word-break">
+				    			<h4>{{rater.invited}}</h4>
+				    		</div>
+				    		<div class="col-md-3 col-sm-0 col-xs-0">
+				    		</div>
+
+				            <div class="col-md-1 col-sm-6 col-xs-6 padding-set padding-set-res" ng-click="showRaterDtls(rater)">
+				                <span class="icon-image" title="email details">
+				                    <i class="fa fa-eye"></i>
+				                </span>
+							</div>
+							 <div class="col-md-1 col-sm-6 col-xs-6 padding-set padding-set-res" ng-click="deleteRater(rater)">
+				                <span class="icon-image" title="email details">
+				                    <i class="fa fa-trash"></i>
+				                </span>
+							</div>
+					    </div>
+					</div>
+			    </div>
+
+			    <div class="panel-set panel-back noti-box-set fade-in three" id="acceptBlock">
+			    	<div class="row hover-effect" >
+			            <div class="col-md-11 col-sm-11 col-xs-10" ng-click="collapse(3,'acceptBlock')">
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-accept"></i>
+				                </span>
+				            </div>
+			    			<p>Manage Invites</p>
+			    		</div>
+			    		<div class="col-md-1 col-sm-1 col-xs-2" style="padding-top: 40px;">
+				    		<span class="badge-set">{{numberAccept}}</span>
+			    		</div>
+			    	</div>
+			    	<div class="panel-option" ng-show="showAccept">
+			    		<hr>
+			    		<div ng-repeat="acceptance in toAcceptList">
+				    	<div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold align-c">
+				    			<h3>Hey, {{userName}}!</h3>
+					    	</div>
+					    </div>
+					    <div class="row">
+				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold align-c">
+				    			<h4>{{acceptance.invitedBy}} wants you on his team as a {{acceptance.designation}} :</h4>
+					    	</div>
+					    	
+					    	<div class="col-md-12 col-sm-12 col-xs-12 font-bold align-c">
+					    		Comments : {{acceptance.comments}}
+					   
+					    	</div> 		
+					    </div>
+					    <hr>
+					    <div class="row">
+	                        <div class="set-width-tree">
+	                            <span><p>Program of user :</p><span>
+	                            <div class="program-area">
+	                                <ul class="tree">
+	                                 <node-tree-accept-invite children="acceptance.scopes"></node-tree-accept-invite>
+			       					 <!-- <node-tree-accept-invite children="acceptance.scopes"></node-tree-accept-invite> -->
+			   					 </ul>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <hr>
+
+					    <div class="row">
+
+					    	<div class="col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-md-3 col-sm-6 col-xs-12 formelem1">
+		                        <div class="panel noti-box">
+		                            <div class="text-box" >
+		                                <a class="btn btn-danger btn-lg set-width" ng-click="acceptInvitation(acceptance.invitedBy,false)">Can not commit</a>
+		                            </div>
+		                        </div>
+				            </div>
+
+			               	<div class="col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-md-3 col-sm-6 col-xs-12 formelem1">
+			                    <div class="panel noti-box">
+			                        <div class="text-box" >
+			                            <a class="btn btn-primary btn-lg set-width" ng-click="acceptInvitation(acceptance.invitedBy,true)">Accept</a>
+			                        </div>
+			                    </div>
+				            </div>
+					    </div>
+
+					    <hr>
+					       					       </div>
+					</div>
+			    </div>
+
+
+
+
+
+			   <div class="panel-set panel-back noti-box-set fade-in two" id="myUserBlock">
+			    	<div class="row">
+			            <div class="col-md-12 hover-effect" ng-click="collapse(4,'myUserBlock')">
+			            	<div class="noti-set">
+				            	<span class="icon-box bg-color-black set-icon">
+				                    <i class="fa fa-manage"></i>
+				                </span>
+				            </div>
+			    			<p>People I'm Rating</p>
+			    		</div>
+			    	</div>
+
+			    	<div class="panel-option" ng-show="showMyUser">
+						<p></p>
+				    	<div class="row pointer-set" ng-repeat = "rater in confirmAcceptedList" >
+				    		<br>
+				    		<div class="col-md-3 col-sm-4 col-xs-12">
+				    			<img src="assets/img/find_user.png" class="user-image1">
+				    		</div>
+				    		<div class="col-md-4 col-sm-8 col-xs-12 word-break">
+				    			<h4>{{rater.invitedBy}}</h4>
+				    		</div>
+				    		<div class="col-md-3 col-sm-0 col-xs-0">
+				    		</div>
+
+					    </div>
+
+					    <hr>
+
+					</div>
+			    </div>
+
+
+
+		    </div>
+		</div>
+	</div>
+</div>
+
+    <script type="text/ng-template" id="showRaterDtls.html">
+		<div class="modal-header">
+			<span class="popup-title"><p>{{rater_id}}</p></span>
+			<span class="popup-content"><p>{{rater_group}}</p></span>
+		</div>
+
+       	<div class="modal-body">
+
+  	                <div class="row">
+                        <div class="set-width-tree">
+                            <span><p>Please rate for following goals</p></span>
+                            <div class="program-area">
+                                <ul class="tree" style="pointer-events: none;">
+                                    <node-tree-accept-invite children="tree"></node-tree-accept-invite>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+		<br>
+		<div class="modal-footer">
+				<button class="btn btn-primary" ng-click="StayHere()">Done</button>
+            </div>
+    </script>

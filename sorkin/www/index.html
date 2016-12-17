@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html ng-app="performAccel">
+<head>
+<meta charset="UTF-8">
+<meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Performance Accelerator</title>
+    <!-- BOOTSTRAP STYLES-->
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+      <link href="assets/css/datetimepicker.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/checkbox.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <!-- <link href="assets/css/star-rating.css"  rel="stylesheet" type="text/css"/> -->
+    <link href="assets/css/star-ratingnew.css"  rel="stylesheet" type="text/css"/>
+    <!-- Notification STYLES-->
+    <link href="assets/css/notification.css"  rel="stylesheet" type="text/css"/>
+    <link href="assets/icofont/css/icofont.css"  rel="stylesheet" type="text/css"/>
+    <link href="assets/icofont 2/css/icofont.css"  rel="stylesheet" type="text/css"/>
+
+<!--     <link href="assets/css/theme-krajee-svg.css" rel="stylesheet" />
+ -->     <!-- GOOGLE FONTS-->
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <link rel="stylesheet" href="assets/css/json-tree.css">
+</head>
+<body  ng-controller="indexCtrl">
+    <div id="ohsnap">
+            <!-- <div class="alert alert-red" style="display: block;">Please create a program first !!</div> -->
+    </div>
+    <!-- <input id="input-21b" value="0" type="number" class="rating" min=0 max=5 step=1 data-size="sm" ng-model="test1">
+            {{test1}} -->
+<nav ng-cloak class="navbar navbar-default navbar-cls-top animated bounceInLeft" role="navigation" style="margin-bottom: 0" ng-show="showWa" >
+            <div class="navbar-header1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand fade-in one" href="index.html"><span >i@ccel</span><sup style="font-size:8px;vertical-align: super;">TM</sup></a>
+    </div>
+    <div class="logout-panel">
+        <!-- <span class="noti-pos">
+            <span class="noti-icon" ng-click="showNotif()">
+                <i class="fa fa-notion"></i>
+            </span>
+            <span class="badge-area1" >
+                <span class="badge-setnoti" ng-show="showBadge">3</span>
+            </span>
+        </span> -->
+        <span>
+            <span class="fade-in two">Welcome {{userName}} !  </span>&nbsp;
+            <span ng-hide="true" class="header-icon fade-in three" ng-click="openFaqPage()" >
+                <i class="fa fa-question-circle" title="Frequently asked qustions"></i>
+            </span>
+            <span class="header-icon fade-in three" ng-click="openHelpPage()" title="Help">
+                <i class="fa fa-exclamation-circle"></i>
+            </span>
+            <a href="#/login" class="btn btn-danger square-btn-adjust fade-in four" ng-click="logout()" data-toggle="modal" data-target="#myModal">Logout</a>
+        </span>
+    </div>
+</nav>
+
+
+        <nav ng-cloak class="navbar-default navbar-side " role="navigation" ng-show="showWa" ng-mouseover="expandSidebar()" ng-mouseleave="collapseSidebarLeave()" id="navbar-coll">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center fade-in two displaynot" id="checkdisplay">
+                        <img src="{{userPicUrl}}" class="user-image img-responsive"/>
+                    </li>
+
+                    <li class="animated bounceInLeft" id="opt1" ng-click="collapseSidebarLeave()" >
+                        <a class="active-menu" href="#/home" id="optHome"><i class="fa fa-dashboard fa-3x"></i> Daily Activity</a>
+                    </li>
+                    <li class="animated bounceInLeft" id="opt1" ng-click="collapseSidebarLeave()" >
+                        <a href="#/buildpa" id="optBuildPA"><i class="fa fa-cubes fa-3x"></i> My Program</a>
+                    </li>
+                    <li ng-show="showReviewOpt" class="animated bounceInLeft" id="opt2" ng-click="expandSidebar()" >
+                        <a href="#/review" id="optReview"><i class="fa fa-eye fa-3x"></i>Rate</a>
+                    </li>
+                    <li ng-show="showCoachOpt" class="animated bounceInLeft" id="opt2" ng-click="expandSidebar()" >
+                        <a href="#/coach" id="optCoach"><i class="fa fa-user-md fa-3x"></i>Coach</a>
+                    </li>
+<!--                     <li class="animated bounceInLeft" id="opt2" ng-click="collapseSidebarLeave()">
+                        <a href="#/reports" id="optReport"><i class="fa fa-bar-chart-o fa-3x"></i> Reports</a>
+                    </li> -->
+                    <li  ng-show="showAdmin" class="animated bounceInLeft" id="opt2" ng-click="collapseSidebarLeave()" >
+                        <a href="#/admin" id="optAdmin"><i class="fa fa-graduation-cap fa-3x"></i> Admin</a>
+                    </li>
+                    <li class="animated bounceInLeft" id="opt3" ng-click="collapseSidebarLeave()" >
+                        <a href="#/360" id="opt360"><i class="fa fa-spinner fa-3x"></i>Manage 360</a>
+                    </li>
+
+                    <li class="animated bounceInLeft" id="opt3" ng-click="collapseSidebarLeave()" >
+                        <a class="animated bounceInLeft" href="#/settings" id="optSettings"><i class="fa fa-desktop fa-3x"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+    <div ng-view></div>
+
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/moment.js"></script>
+     <script src="assets/js/datetimepicker.js"></script>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/ui-bootstrap-tpls.min.js"></script>
+
+
+    <script src="js/URLCONFIG.js"></script>
+    <script src="js/star-ratingnew.js"></script>
+    <script src="js/services/tree-service.js"></script>
+    <script src="js/directives/tree-directive.js"></script>
+    <script src="js/directives/inviteRater-tree.js"></script>
+    <!--<script src="js/directives/inviteRater-tree-ds.js"></script> -->
+    <script src="js/directives/raterPage-tree.js"></script>
+    <script src="js/directives/ereview-tree.js"></script>
+    <script src="js/directives/acceptInvite-tree.js"></script>
+     <script src="js/directives/mPreview-tree.js"></script>
+        <script src="js/directives/disbaledstar.js"></script>
+        <script src="js/directives/viewRaterInvite.js"></script>
+     
+
+
+
+    <script src="js/main.js"></script>
+    <script src="js/controllers/indexCtrl.js"></script>
+
+    <script src="js/services/statusCheck.js"></script>
+     <script src="js/services/session.js"></script>
+     <script src="js/services/retreiveGoals.js"></script>
+     <script src="js/services/programjson.js"></script>
+      <script src="js/services/appProgSetup.js"></script>
+
+ <script src="js/controllers/adminController.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+    <script src="js/controllers/coachController.js"></script>
+    <script src="js/controllers/ereviewController.js"></script>
+    <script src="js/controllers/mpreviewController.js"></script>
+    <script src="js/controllers/settingsController.js"></script>
+    <script src="js/controllers/reportsController.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/sidebar.js"></script>
+    <script src="js/controllers/buildpaController.js"></script>
+    <script src="js/controllers/reviewController.js"></script>
+    <script src="js/controllers/controller360.js"></script>
+    <script src="js/controllers/faqController.js"></script>
+    <script src="js/controllers/helpController.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="assets/js/notification.js"></script>
+    <script src="assets/js/json-tree.js"></script>
+    
+
+    <script src="js/json2.js"></script>
+    <script src="js/jstorage.js"></script>
+    
+
+</body>
+</html>

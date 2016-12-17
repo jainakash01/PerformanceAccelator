@@ -1,0 +1,439 @@
+<div id="wrapper">
+    <div ng-include="'partials/sidebar-template.html'"></div>
+        <div class="content animated bounceInUp" id="page-wrapper">
+		    <div id="page-inner">
+		    	<div class="row fade-in one">
+		            <div class="col-md-12 goal-heading">
+		    			<p>Morning Preview</p>
+		    		</div>
+		    	</div>
+				<hr>
+
+
+
+  	                 <!-- <ul class="tree list-group">
+       					 <node-tree-invite-rater children="tree"></node-tree-invite-rater>
+   					 </ul> -->
+                     <div class="row">
+                        <div class="set-width-tree">
+                            <span><p>Morning Preview selection</p><span>
+                            <div class="program-area">
+                                <ul class="tree list-group">
+                                     <node-tree-morn-prev children="tree"></node-tree-morn-prev>
+                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+
+
+                <div class="row" style="margin-top:15px;">
+                    <div class="col-xs-offset-0 col-sm-offset-1 col-md-offset-2 col-md-4 col-sm-5 col-xs-12 formelem1">
+                        <div class="panel">
+                            <div class="text-box" >
+                                <a class="btn btn-danger btn-lg set-width" ng-click="cancel()">Back</a>                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-offset-0 col-sm-offset-1 col-md-offset-2 col-md-4 col-sm-5 col-xs-12 formelem1">
+                        <div class="panel">
+                            <div class="text-box" >
+                                <a class="btn btn-primary btn-lg set-width" ng-click="submitPreview()">Submit, I'm all In !</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+<!--                 <div class="set-hover">
+                    <div class="row">
+                        <div style="width: 100%; padding: 0px 10px 0px 10px;">
+                            <div class="set-back-color" ng-click="optionCollapse1()">
+                                <div class="col-md-11 col-sm-11 col-xs-11 font-bold">
+                                    <h4>Organization goals</h4>
+                                </div>
+                                <div class="col-md-1 col-sm-1 col-xs-1 padding-set">
+                                    <span class="icon-image">
+                                        <i class="fa fa-up" ng-show="showOption1"></i>
+                                        <i class="fa fa-down" ng-show="!showOption1"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+<!--
+                    <div ng-show="showOption1">
+      		    <div class="row" >
+      		    <p></p>
+					    <div ng-repeat="org in orgGoal">
+	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem">
+                                        <div class="checkbox checkbox-primary">
+                                            <input id="cb_0_{{$index}}" class="styled" type="checkbox">
+                                            <label id ="cb_0_{{$index}}" for="cb_0_{{$index}}">{{org.name}}</label>
+                                            <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p>
+                                        </div>
+                                    </div> <hr>
+                                    </div>
+					    </div>
+
+                                <hr>
+
+                </div>
+                </div>
+
+                <div class="set-hover">
+                    <div class="row">
+                        <div style="width: 100%; padding: 0px 10px 0px 10px;">
+                                    <div class="set-back-color" ng-click="optionCollapse2()">
+                                        <div class="col-md-11 col-sm-11 col-xs-11 font-bold">
+                                            <h4>Individual Performance goal</h4>
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-1 padding-set">
+                                            <span class="icon-image">
+                                                <i class="fa fa-up" ng-show="showOption2"></i>
+                                                <i class="fa fa-down" ng-show="!showOption2"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="showOption2">
+           		    <div class="row" >
+           		    <p></p>
+					    <div ng-repeat="org in indiPerformGoal">
+	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem">
+                                        <div class="checkbox checkbox-primary">
+                                            <input id="cb_1_{{$index}}" class="styled" type="checkbox">
+                                            <label id ="cb_1_{{$index}}"for="cb_1_{{$index}}">{{org.name}}</label>
+                                            <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    </div>
+					    </div>
+                                <hr>
+
+                                <hr>
+
+                </div>
+
+                 <div class="row">
+                        <div style="width: 100%; padding: 0px 10px 0px 10px;">
+                                    <div class="set-back-color" ng-click="optionCollapse3()">
+                                        <div class="col-md-11 col-sm-11 col-xs-11 font-bold">
+                                            <h4>Individual Development goal</h4>
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-1 padding-set">
+                                            <span class="icon-image">
+                                                <i class="fa fa-up" ng-show="showOption3"></i>
+                                                <i class="fa fa-down" ng-show="!showOption3"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="showOption3">
+                              <div class="row" >
+					    <div ng-repeat="org in indiDevelopGoal">
+					    <p></p>
+	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem">
+                                        <div class="checkbox checkbox-primary">
+                                            <input id="cb_2_{{$index}}" class="styled" type="checkbox">
+                                            <label id ="cb_2_{{$index}}"for="cb_2_{{$index}}">{{org.name}}</label>
+                                            <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p>
+                                        </div>
+                                    </div>
+                                    </div>
+					    </div>
+                                <hr>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 sub-heading">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="set-hover">
+                    <div class="row">
+                        <div style="width: 100%; padding: 0px 10px 0px 10px;">
+                                    <div class="set-back-color" ng-click="optionCollapse4()">
+                                        <div class="col-md-11 col-sm-11 col-xs-11 font-bold">
+                                            <h4>Individual Skills and Competencies</h4>
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-1 padding-set">
+                                            <span class="icon-image">
+                                                <i class="fa fa-up" ng-show="showOption4"></i>
+                                                <i class="fa fa-down" ng-show="!showOption4"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="showOption4">
+
+ 	    <div class="row">
+					    	    <div ng-repeat="org in indiSkill">
+					    	    <p></p>
+	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem">
+                                        <div class="checkbox checkbox-primary">
+                                            <input id="checkbox2" class="styled" type="checkbox">
+                                            <label id ="checkbox2"for="checkbox2">{{org.name}}</label>
+                                            <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p>
+                                        </div>
+                                    </div>
+                                    </div>
+
+					    </div>
+                    </div>
+                </div>
+
+
+                                <div class="row">
+                    <div class="col-md-12 sub-heading">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="set-hover">
+                    <div class="row">
+                        <div style="width: 100%; padding: 0px 10px 0px 10px;">
+                                    <div class="set-back-color" ng-click="optionCollapse5()">
+                                        <div class="col-md-11 col-sm-11 col-xs-11 font-bold">
+                                            <h4>Individual root factors</h4>
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-1 padding-set">
+                                            <span class="icon-image">
+                                                <i class="fa fa-up" ng-show="showOption5"></i>
+                                                <i class="fa fa-down" ng-show="!showOption5"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="showOption5">
+
+                		   <div class="row">
+					    	    <div ng-repeat="org in indiRootFactor">
+					    	    <p></p>
+	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem">
+                                        <div class="checkbox checkbox-primary">
+                                            <input id="checkbox2" class="styled" type="checkbox">
+                                            <label id ="checkbox2"for="checkbox2">{{org.name}}</label>
+                                            <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p>
+                                        </div>
+                                    </div><hr>
+                                    </div>
+
+					    </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+</div>
+
+			    <div class="row" style="margin-top:15px;">
+		            <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2 col-md-4 col-sm-5 col-xs-6 formelem1">
+		                        <div class="panel noti-box">
+		                            <div class="text-box" >
+		                                <a class="btn btn-primary btn-lg set-width" ng-click="submitPreview()">I'm all In !</a>
+		                            </div>
+		                        </div>
+		            </div>
+		            <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2 col-md-4 col-sm-5 col-xs-6 formelem1">
+		                        <div class="panel noti-box">
+		                            <div class="text-box" >
+		                                <a class="btn btn-danger btn-lg set-width" ng-click="cancel()">Back</a>
+		                            </div>
+		                        </div>
+		            </div>
+		                </div>
+		    </div>
+
+
+</div></div>
+
+ -->
+
+
+
+
+<!-- 				<div class="row"> -->
+<!-- 				    <div class="col-md-5 col-sm-5 col-xs-12 font-bold"> -->
+<!-- 				    	<h4>Training cycle (number of days)</h4> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-7 col-sm-7 col-xs-12 font-bold"> -->
+<!-- 				    	<input type="number" class="textboxea set-padd" id="inputCycle" placeholder="Training cycle" ng-model="inputCycle"/> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<hr> -->
+<!-- 		    	<div class="panel-back noti-box-set fade-in two" id="profileBlock"> -->
+<!-- 		    		<div class="panel-set row" ng-click="collapse(0,'profileBlock')"> -->
+<!-- 			            <div class="col-md-12 hover-effect" > -->
+<!-- 			            	<div class="noti-set"> -->
+<!-- 				            	<span class="icon-box bg-color-black set-icon"> -->
+<!-- 				                    <i class="fa fa-goal"></i> -->
+<!-- 				                </span> -->
+<!-- 				            </div> -->
+<!-- 			    			<p>Goals</p> -->
+<!-- 			    		</div> -->
+<!-- 			    	</div> -->
+<!-- 			    	<div class="panel-option" ng-show="showProfile"> -->
+<!-- 			    		<hr> -->
+<!-- <!-- 				    	<div class="row"> -->
+<!-- 				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold"> -->
+<!-- 				    			<h4>Organizational Goals</h4> -->
+<!-- 					    	</div> -->
+<!-- 					    </div> -->
+<!-- 					    <div class="row" > -->
+<!-- 					    <div ng-repeat="org in orgGoal"> -->
+<!-- 	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem"> -->
+<!--                                         <div class="checkbox checkbox-primary"> -->
+<!--                                             <input id="cb_0_{{$index}}" class="styled" type="checkbox"> -->
+<!--                                             <label id ="cb_0_{{$index}}" for="cb_0_{{$index}}">{{org}}</label> -->
+<!--                                             <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                     </div> -->
+<!-- 					    </div> -->
+<!-- 					    <hr> -->
+<!-- 		    <div class="row" > -->
+<!-- 					    <div ng-repeat="org in indiPerformGoal"> -->
+<!-- 	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem"> -->
+<!--                                         <div class="checkbox checkbox-primary"> -->
+<!--                                             <input id="cb_1_{{$index}}" class="styled" type="checkbox"> -->
+<!--                                             <label id ="cb_1_{{$index}}"for="cb_1_{{$index}}">{{org}}</label> -->
+<!--                                             <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                     </div> -->
+<!-- 					    </div> -->
+<!-- 					    <hr> -->
+<!-- 			    <div class="row" > -->
+<!-- 					    <div ng-repeat="org in indiDevelopGoal"> -->
+<!-- 	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem"> -->
+<!--                                         <div class="checkbox checkbox-primary"> -->
+<!--                                             <input id="cb_2_{{$index}}" class="styled" type="checkbox"> -->
+<!--                                             <label id ="cb_2_{{$index}}"for="cb_2_{{$index}}">{{org}}</label> -->
+<!--                                             <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                     </div> -->
+<!-- 					    </div> -->
+<!-- 					</div> -->
+<!-- 		    	</div> -->
+
+<!-- 		    	<div class="panel-back noti-box-set fade-in three" id="inviteBlock"> -->
+<!-- 		    		<div class="panel-set row" ng-click="collapse(1,'inviteBlock')"> -->
+<!-- 			            <div class="col-md-12 hover-effect"> -->
+<!-- 			            	<div class="noti-set"> -->
+<!-- 				            	<span class="icon-box bg-color-black set-icon"> -->
+<!-- 				                    <i class="fa fa-skill"></i> -->
+<!-- 				                </span> -->
+<!-- 				            </div> -->
+<!-- 			    			<p>Individual Skills & Competencies</p> -->
+<!-- 			    		</div> -->
+<!-- 			    	</div> -->
+<!-- 			    	<div class="panel-option" ng-show="showinviteRater"> -->
+<!-- 			    		<hr> -->
+<!-- 				    	<div class="row"> -->
+<!-- 				    		<div class="col-md-12 col-sm-12 col-xs-12 font-bold"> -->
+<!-- 				    			<h4>Increase Retention</h4> -->
+<!-- 					    	</div> -->
+<!-- 					    </div> -->
+<!-- 					    <div class="row"> -->
+<!-- 					    	    <div ng-repeat="org in indiSkill"> -->
+<!-- 	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem"> -->
+<!--                                         <div class="checkbox checkbox-primary"> -->
+<!--                                             <input id="checkbox2" class="styled" type="checkbox"> -->
+<!--                                             <label id ="checkbox2"for="checkbox2">{{org}}</label> -->
+<!--                                             <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                     </div> -->
+
+<!-- 					    </div> -->
+<!-- 					</div> -->
+<!-- 		    	</div> -->
+
+<!-- 		    	<div class="panel-back noti-box-set fade-in four" id="manageBlock"> -->
+<!-- 			    	<div class="panel-set row"> -->
+<!-- 			            <div class="col-md-12 hover-effect" ng-click="collapse(2,'manageBlock')"> -->
+<!-- 			            	<div class="noti-set"> -->
+<!-- 				            	<span class="icon-box bg-color-black set-icon"> -->
+<!-- 				                    <i class="fa fa-factor"></i> -->
+<!-- 				                </span> -->
+<!-- 				            </div> -->
+<!-- 			    			<p>Individual Root Factors</p> -->
+<!-- 			    		</div> -->
+<!-- 			    	</div> -->
+
+<!-- 					<div class="panel-option" ng-show="showManage"> -->
+<!-- 				    		<hr> -->
+<!-- 		   <div class="row"> -->
+<!-- 					    	    <div ng-repeat="org in indiRootFactor"> -->
+<!-- 	           					<div class="col-md-12 col-sm-12 col-xs-12 formelem"> -->
+<!--                                         <div class="checkbox checkbox-primary"> -->
+<!--                                             <input id="checkbox2" class="styled" type="checkbox"> -->
+<!--                                             <label id ="checkbox2"for="checkbox2">{{org}}</label> -->
+<!--                                             <p>I step up fully --- outwardly applying the unique skills and capabilities I have earned --- aware of how my role and conversations create impact</p> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                     </div> -->
+
+<!-- 					    </div> -->
+<!-- 						</div> -->
+<!-- 				    </div> -->
+
+<!-- 			    <div class=" panel-back noti-box-set fade-in five" id="acceptBlock"> -->
+<!-- 			    	<div class="panel-set row hover-effect" > -->
+<!-- 			            <div class="col-md-11 col-sm-11 col-xs-11" ng-click="collapse(3,'acceptBlock')"> -->
+<!-- 			            	<div class="noti-set"> -->
+<!-- 				            	<span class="icon-box bg-color-black set-icon"> -->
+<!-- 				                    <i class="fa fa-dailystm"></i> -->
+<!-- 				                </span> -->
+<!-- 				            </div> -->
+<!-- 			    			<p>Daily Statement</p> -->
+<!-- 			    		</div> -->
+<!-- 			    	</div> -->
+<!-- 			    	<div class="panel-option" ng-show="showAccept"> -->
+<!-- 				    	<div class="row"> -->
+<!-- 						    <div class="col-md-12 col-sm-12 col-xs-12 font-bold"> -->
+<!-- 						    	<h4>Daily Statement</h4> -->
+<!-- 							</div> -->
+<!-- 							<div class="col-md-12 col-sm-12 col-xs-12 form-group"> -->
+<!-- 						    	<textarea class="form-control" rows="5" id="comment" ng-model="comment"></textarea> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 			    </div> -->
+<!-- 			    <div class="row" style="margin-top:15px;"> -->
+<!-- 		            <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2 col-md-4 col-sm-5 col-xs-6 formelem1"> -->
+<!-- 		                        <div class="panel noti-box"> -->
+<!-- 		                            <div class="text-box" > -->
+<!-- 		                                <a class="btn btn-primary btn-lg set-width" ng-click="addItem()">Add item</a> -->
+<!-- 		                            </div> -->
+<!-- 		                        </div> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2 col-md-4 col-sm-5 col-xs-6 formelem1"> -->
+<!-- 		                        <div class="panel noti-box"> -->
+<!-- 		                            <div class="text-box" > -->
+<!-- 		                                <a class="btn btn-danger btn-lg set-width" ng-click="cancel()">Back</a> -->
+<!-- 		                            </div> -->
+<!-- 		                        </div> -->
+<!-- 		            </div> -->
+<!-- 		                </div> -->
+<!-- 		    </div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->

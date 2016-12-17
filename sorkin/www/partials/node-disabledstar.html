@@ -1,0 +1,34 @@
+<li>
+	<div class="hover-effect-tree" id="treediv1">
+	    <span class="expand-tree show-cursor" ng-if="$index != 0"  ng-click="toggleVisibility(nodedisstar)"> {{ ( nodedisstar.childrenVisibility && nodedisstar.children.length ) ? '+' : '-' }}
+	    </span>
+	    
+	    <span class="align-tree">
+	    	<span class="tree-content" ng-if="$index != 0 && nodedisstar.checked">
+		      	<span ng-if="nodedisstar.itemType != 'Root Factor' ">{{ nodedisstar.name }} </span>
+		      	<span ng-if="nodedisstar.itemType == 'Root Factor' ">{{ nodedisstar.name.name }} &nbsp;&nbsp; {{nodedisstar.name.DSforRater}}  </span>
+		    </span>
+
+		    <small ng-if="$index == 0">
+		    	<span id="markspan">
+		    		<span ng-if="node.itemType == 'Organisational Goal' ">
+		        		<img src="images/og.svg" style="width: 29px;">
+		        	</span>
+		        	<span ng-if="node.itemType == 'Individual Performance Goal' " >
+		        		<img src="images/ipg.svg" style="width: 29px;">
+		        	</span>
+		        	<span ng-if="node.itemType == 'Individual Development Goal' " >
+		        		<img src="images/idg.svg" style="width: 29px;">
+		        	</span>
+		        	<span ng-if="node.itemType == 'Skills and Competencies' " >
+		        		<img src="images/skills.svg" style="width: 29px;">
+		        	</span>
+		        	<span ng-if="node.itemType == 'Root Factor' " >
+		        		<img src="images/rf.svg" style="width: 29px;">
+		        	</span>
+		    		<span>{{nodedisstar.itemType}}</span>&nbsp;&nbsp;
+		    	</span>
+		    </small>
+	    </span>
+	</div>    
+</li>

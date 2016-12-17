@@ -1,0 +1,75 @@
+<!--  <input id="input-21b" value="0" type="number" class="rating" min=0 max=5 step=1 data-size="sm">
+<div id="wrapper"> -->
+    <div ng-include="'partials/sidebar-template.html'"></div>
+    <div class="content animated bounceInUp" id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12 goal-heading">
+                        <p>Evening Review</p>
+                    </div>
+                </div>
+                <hr>
+
+
+
+  	            <div class="row">
+                    <div class="set-width-tree">
+                        <span><p>Ratings for Evening Review</p><span>
+                        <div class="program-area">
+                            <ul class="tree">
+                                 <node-tree-eve-review children="tree"></node-tree-eve-review>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12 sub-heading">
+                        <p>How did you do these today?</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 col-xs-12 para-option">
+                        <p>Day's Biggest Challenge</p>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12 input-padding1">
+                        <input type="text" class="textboxea set-padd" id="addstate1" placeholder="Challenge" ng-model="bigChall"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 col-xs-12 para-option">
+                        <p>How I Addressed It</p>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12 input-padding1">
+                        <input type="text" class="textboxea set-padd" id="addstate1" placeholder="How I Addressed It" ng-model="wayAddress"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 col-xs-12 para-option">
+                        <p>What I did Really Well Today?</p>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12 input-padding1">
+                        <input type="text" class="textboxea set-padd" id="addstate1" placeholder="What I did Really Well Today?" ng-model="reallyWell"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12 col-xs-12 para-option">
+                        <p>Reason to Be Grateful</p>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12 input-padding1">
+                        <input type="text" class="textboxea set-padd" id="addstate1" placeholder="Reason to Be Grateful" ng-model="reasonGrate"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-3 col-md-9 col-sm-10 col-xs-12 formelem">
+                        <div class="panel noti-box">
+                            <div class="text-box" >
+                                <a class="btn btn-primary btn-lg" ng-click="submitReview()">Submit and Notify Coach</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
