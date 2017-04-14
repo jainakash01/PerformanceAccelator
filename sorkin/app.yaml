@@ -1,5 +1,5 @@
 application: iaccel-atstakeperformance
-version: pin
+version: diksha
 runtime: python27
 api_version: 1
 threadsafe: true
