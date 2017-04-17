@@ -296,8 +296,8 @@ getUserData.getData()
         console.log(data);
 
         $scope.newOgList  = data.og;
-        $scope.newidgList  = data.idg;
-        $scope.newipgList  = data.ipg;
+        $scope.newIdgList  = data.idg;
+        $scope.newIpgList  = data.ipg;
         $scope.newSkillsList  = data.skills;
         $scope.newRootFactor  = data.roots;
 
