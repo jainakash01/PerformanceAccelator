@@ -1,9 +1,9 @@
 cron:
 
-#- description: Enforce policies for user signatures
-#  url: /a/apply
-#  schedule: every day 00:00
-#  timezone: America/Denver
+ - description: Send Gap Reports
+   url: /a/cronJob
+   schedule: every friday 00:00
+   timezone: America/Tijuana
 
 #- description: Check conformance with policies for user signatures
 #  url: /a/validate

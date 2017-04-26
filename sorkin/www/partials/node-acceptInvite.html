@@ -1,5 +1,5 @@
 <li>
-	<div class="hover-effect-tree" id="treediv1">
+	<div class="hover-effect-tree" id="treediv1" ng-class="{'odd-div':$first}">
 	    <span class="expand-tree show-cursor" ng-if="$index != 0"  ng-click="toggleVisibility(nodeain)"> {{ ( nodeain.childrenVisibility && nodeain.children.length ) ? '+' : '-' }}
 	    </span>
 	    

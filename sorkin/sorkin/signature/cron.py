@@ -1,5 +1,4 @@
-from sorkin.signature import *
-from sorkin.signature.handler import *
+from sorkin.signature.handler import*
 import json
 import logging
 import sorkin
@@ -40,16 +39,26 @@ class CronJobApi(RequestHandler):
 class CronJobMailApi(RequestHandler):
 
     def post(self,username):
+        
         #logging.info('Inside new cron job')
+         now =  datetime.now()
+           
+         qry = Credentials.query()
+         results = []
 
-        if username in [ 'jain.shashank86@gmail.com', 'jain.akash01@gmail.com',  'jain.akash@novasoftcorps.com','sorkin.stephen@gmail.com','sorkin2000@gmail.com','stephen.sorkin@gmail.com','stephen@atstakeperformance.com','stephensorkin@icloud.com','stevecraig711@gmail.com','stephen@iaccel-atstakeperformance.com']:
+         for user in qry.fetch():
+          
+          #logging.info(user.key.id())
 
-            now =  datetime.now()
+          if username in [user.key.id()]:
+
+         
             user_rating_summary = []
             raters_rating_summary = []
             #r = []
             mail_content = []
             body_content = ''
+            body_content_data = ''
 
             for delta in range(0,6):
 
@@ -153,15 +162,8 @@ class CronJobMailApi(RequestHandler):
                                                     userRatingTemp = raters_ratings[i][u'ratings']
 
                                                     og_length = len(userRatingTemp)
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
+                                                     
                                                     r = []
-                                                    
-                                                    
                                                     
                                                     for og in xrange(og_length):
                                                             if ('children' in userRatingTemp[og]):
@@ -185,12 +187,6 @@ class CronJobMailApi(RequestHandler):
                                                                                             r.append(userRatingTemp[og][u'children'][ipg_len][u'children'][idg_len][u'children'][skills_len][u'children'][rf_len])
                                                                                             #logging.info('This value of r should have been appended')
                                                                                             #logging.info(r)
-
-
-
-
-   
-           
 
 
                                                     #logging.info('Ok all own ratings summary done')
@@ -268,8 +264,8 @@ class CronJobMailApi(RequestHandler):
 
 
 
-            #logging.info('final mail content is ')
-            #logging.info(mail_content)
+            logging.info('final mail content is ')
+            logging.info(mail_content)
 
             sender_address = 'admin@iaccel-atstakeperformance.com'.format(app_identity.get_application_id())  #'admin@iaccel-atstakeperformance.com'
 
@@ -278,18 +274,27 @@ class CronJobMailApi(RequestHandler):
                     subject="Performance Accelerator Weekly Report Testing For " + username)
 
             for i in xrange(len(mail_content)):
-                #logging.info(mail_content[i])
+                logging.info(mail_content[i])
 
-                body_content = body_content +  mail_content[i][u'rating_by']  + ' has given you ' + mail_content[i][u'rater_rating'] + '  And you gave yourself ' + mail_content[i][u'own_rating'] + ' for Root Factor ' + mail_content[i][u'root_factor'] + ' on ' + mail_content[i][u'date'] +  '  Gap defined was  '  + str(mail_content[i][u'gapDefined']) +  '<br>'
+                body_content =  body_content + '<span style= "font-weight: bold;">'  +  mail_content[i][u'rating_by']  + '</style>'  '</span>'   ' has given you '    ' <span style= "color:blue;font-weight: bold;" >'   + mail_content[i][u'rater_rating'] + '</style> ' '</span>' '     And you gave yourself '  '   <span style="color:green;font-weight: bold;">  '  + mail_content[i][u'own_rating'] + '</style>'  '</span>'   ' for Root Factor '  '  <span style="color:#e22214;text-decoration: underline;font-weight: bold;">' + mail_content[i][u'root_factor'] + '</style>'  '</span>'  ' on ' '<span style= "font-weight: bold;">'  + mail_content[i][u'date'] + '</span>'  '  Gap defined was  ' '   <span style="color:#f403d4;font-weight: bold;"> '  + str(mail_content[i][u'gapDefined']) + '</style>'  '</span>'  '<br>'
             logging.info('Entire body content')
             logging.info(body_content)
-            message.body = body_content
-            message.html = '<html><head></head><body>' + body_content + '</body></html>'
-
-            message.to = 'jain.shashank@novasoftcorps.com'   #username
-            message.send()
-            logging.info('Mail Sent')
-            logging.info(mail_content)
+            
+            if body_content == '':
+               logging.info('Mail not Sent')
+            else:
+                  message.body = body_content
+                  message.html = '<html><head></head><body>' + body_content + '</body></html>'
+                  logging.info('Mail Sent')
+                  message.to = username   #username
+                  logging.info(message.to)
+                  logging.info(message.html)
+                  message.send()
+                  
+                        
+            #logging.info('Mail Sent')
+                  
+                 
             return
 
 
