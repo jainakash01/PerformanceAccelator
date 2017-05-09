@@ -224,7 +224,7 @@ class CustomerApi(RequestHandler):
         logging.info(sender_address);
         message = mail.EmailMessage(
         sender=sender_address,
-        subject="Welcome to iccel")
+        subject="Welcome to iaccel")
 
         urlStr = 'https://iaccel-atstakeperformance.appspot.com/a/customer/' +  username + '/authenticate/' + hash;
 
@@ -457,7 +457,7 @@ class ForgetPasswordApi(RequestHandler):
         sender=sender_address,
         subject="Forgot Password Request")
 
-        urlStr = 'https://iaccel-atstakeperformance.appspot.com/';
+        urlStr = 'http://iaccel-atstakeperformance.com/';
 
         message.to = username
 
