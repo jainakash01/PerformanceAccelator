@@ -68,8 +68,8 @@
     </div>
 </nav>
 
-
-        <nav ng-cloak class="navbar-default navbar-side " role="navigation" ng-show="showWa" ng-mouseover="expandSidebar()" ng-mouseleave="collapseSidebarLeave()" id="navbar-coll">
+<!--ng-mouseover="expandSidebar()"  for expand sidebar  -->
+        <nav ng-cloak class="navbar-default navbar-side " role="navigation" ng-show="showWa"  ng-mouseleave="collapseSidebarLeave()" id="navbar-coll">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li class="text-center fade-in two displaynot" id="checkdisplay">
@@ -82,10 +82,10 @@
                     <li class="animated bounceInLeft" id="opt1" ng-click="collapseSidebarLeave()" >
                         <a href="#/buildpa" id="optBuildPA"><i class="fa fa-cubes fa-3x"></i> My Program</a>
                     </li>
-                    <li ng-show="showReviewOpt" class="animated bounceInLeft" id="opt2" ng-click="expandSidebar()" >
+                    <li ng-show="showReviewOpt" class="animated bounceInLeft" id="opt2" ng-click="collapseSidebarLeave()" >
                         <a href="#/review" id="optReview"><i class="fa fa-eye fa-3x"></i>Rate</a>
                     </li>
-                    <li ng-show="showCoachOpt" class="animated bounceInLeft" id="opt2" ng-click="expandSidebar()" >
+                    <li ng-show="showCoachOpt" class="animated bounceInLeft" id="opt2" ng-click="collapseSidebarLeave()" >
                         <a href="#/coach" id="optCoach"><i class="fa fa-user-md fa-3x"></i>Coach</a>
                     </li>
 <!--                     <li class="animated bounceInLeft" id="opt2" ng-click="collapseSidebarLeave()">

@@ -18,10 +18,10 @@ performAccel.controller('homeCtrl', function ($scope, $location, $http, statusSe
     console.log(dt);
     console.log('Current time above')
     console.log(dt.getHours())
-    
+   
     currHrs = dt.getHours();
     
-    
+   
     	
 	$scope.activate = true;
 	angular.element($window).scrollTop(0);
@@ -40,13 +40,40 @@ performAccel.controller('homeCtrl', function ($scope, $location, $http, statusSe
           if(typeof inviteeDetails.total_prog_days === 'undefined' || inviteeDetails.total_prog_days === 'null') {
             console.log('no data');
           } else {
+        	
+        	     dt = new Date();
+                 $scope.total_days = (inviteeDetails.total_prog_days);
+                 $scope.today_day = dt.getDay();
+                 console.log(dt.getDay());
+                 $scope.no_of_weekend_day=0;
+                 for(var i=0; i <= $scope.total_days-1; i++)
+                         
+                         {
+                         
+                         if($scope.today_day == 6){
+                                 $scope.no_of_weekend_day =  $scope.no_of_weekend_day + 1;
+                                 //console.log($scope.no_of_weekend_day); 
+                                 
+                               
+                         }
+                         if($scope.today_day == 7){
+                                 $scope.no_of_weekend_day =  $scope.no_of_weekend_day + 1;                                
+                                 $scope.today_day=0;
+                                 //console.log($scope.no_of_weekend_day); 
+                         }
+                         $scope.today_day =  $scope.today_day + 1;
+                         //console.log($scope.no_of_weekend_day);  
+                         }
+        	
           	// calculation for days left
+                 
             $scope.progPerc = (inviteeDetails.days_sinc_start * 100) / inviteeDetails.total_prog_days;
-            $scope.progPerc = Math.round($scope.progPerc);
+            $scope.progPercs = Math.round($scope.progPerc);
             $scope.daysLeft = inviteeDetails.total_prog_days - inviteeDetails.days_sinc_start;
-            console.log($scope.progPerc);
+            console.log($scope.progPercs);
+            console.log($scope.daysLeft);
             
-           // alert($scope.daysLeft);
+            //alert($scope.daysLeft);
             
             if ($scope.daysLeft <= 0 ){
             	$scope.daysLeftPosi = false;
@@ -82,7 +109,7 @@ performAccel.controller('homeCtrl', function ($scope, $location, $http, statusSe
           var response = data;
           $scope.showReviewOpt = false;
           console.log(response);
-                   // d.reject(response);
+                   //d.reject(response);
         });
 
 	$scope.openMPreview = function() {

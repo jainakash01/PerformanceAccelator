@@ -6,8 +6,10 @@ performAccel.service('programJson', function($http, $q) {
     //     'program':[]
     // };
     this.setData = function(jsonObj,userEmail) {
-    	console.log('Called Json setter service ...............');
+        //console.log(userEmail);
 
+    	console.log('Called Json setter service ...............');
+         
 
     	setProgramUrl = '/a/customer/' + userEmail + '/program';
 
@@ -26,6 +28,8 @@ performAccel.service('programJson', function($http, $q) {
         return jsonData;
     };
     this.getData = function(userEmail) {
+
+        console.log(userEmail);
 
     	var d = $q.defer();
 

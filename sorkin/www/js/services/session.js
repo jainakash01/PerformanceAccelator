@@ -10,8 +10,10 @@ performAccel.service('getUserData', function($http, $q) {
         if (userData) {
             console.log('Yes, retrieved from Cache');
             d.resolve(userData);
+            console.log(userData.user_logging);
         } else {
         	window.location.assign('/login');
+        	
         	return;
 /*                    $.jStorage.set("Sorkin_Session", response);
                     $.jStorage.setTTL("Sorkin_Session" + compName, 100 * 60 * 1000);

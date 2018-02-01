@@ -95,7 +95,7 @@ performAccelIndex.controller('indexCtrl', function ($scope, $http, $location, ge
        }
 
   $(window).resize(function(){
-    console.log(window.innerWidth);
+    //console.log(window.innerWidth);
     $scope.$apply(function(){
        if (window.innerWidth < 768) {
           $("#optHome").attr("data-toggle","collapse");
@@ -156,20 +156,33 @@ performAccelIndex.controller('indexCtrl', function ($scope, $http, $location, ge
     $location.path('/help');
 
   };
+  
+
 
 	$scope.logout = function(){
+		  
+		$http.get('/a/customer/' + $scope.userEmail + '/logout').success(function() {
+			  	console.log('Logut URL');
+			  	
+			  })
 		$.jStorage.deleteKey("Sorkin_Session");
 		window.location.assign('/login');
-	};
+	        };
 
 	getUserData.getData()
     .then(function(resp) {
     	console.log('Inside Index Ctrl');
     	console.log(resp);
+     
     	if(resp.application_role == 'Admin'){
     		console.log('Yes its Amdin')
     		$scope.showAdmin=true;
     	}
+      // if(resp.user_logging == 'true'){
+      //   console.log('Yes login true')
+      //   $scope.userEmail = resp.email;
+      // }
+    //  console.log(resp.user_logging);
 
     	$scope.userName = resp.first_name;
     	$scope.userEmail = resp.email;
@@ -248,7 +261,21 @@ performAccelIndex.controller('indexCtrl', function ($scope, $http, $location, ge
     	$("#optBuildPA").removeClass("active-menu");
     	$("#opt360").removeClass("active-menu");
       $("#optReview").removeClass("active-menu");
+      $("#optCoach").removeClass("active-menu");
+
 	});
+
+    angular.element('#optCoach').click(function(){
+      $("#optCoach").addClass("active-menu");
+      $("#optHome").removeClass("active-menu");
+      $("#optAdmin").removeClass("active-menu");
+      $("#optSettings").removeClass("active-menu");
+      $("#optBuildPA").removeClass("active-menu");
+      $("#opt360").removeClass("active-menu");
+      $("#optReview").removeClass("active-menu");
+
+  });
+
 
 	angular.element('#optAdmin').click(function(){
     	$("#optAdmin").addClass("active-menu");
@@ -256,7 +283,9 @@ performAccelIndex.controller('indexCtrl', function ($scope, $http, $location, ge
     	$("#optSettings").removeClass("active-menu");
     	$("#optBuildPA").removeClass("active-menu");
     	$("#opt360").removeClass("active-menu");
-        $("#optReview").removeClass("active-menu");
+      $("#optReview").removeClass("active-menu");
+      $("#optCoach").removeClass("active-menu");
+
 	});
 
   angular.element('#optReview').click(function(){
@@ -266,6 +295,8 @@ performAccelIndex.controller('indexCtrl', function ($scope, $http, $location, ge
       $("#optBuildPA").removeClass("active-menu");
       $("#opt360").removeClass("active-menu");
       $("#optAdmin").removeClass("active-menu");
+      $("#optCoach").removeClass("active-menu");
+
   });
 
 	angular.element('#optBuildPA').click(function(){
@@ -275,6 +306,8 @@ performAccelIndex.controller('indexCtrl', function ($scope, $http, $location, ge
     	$("#optAdmin").removeClass("active-menu");
     	$("#opt360").removeClass("active-menu");
       $("#optReview").removeClass("active-menu");
+      $("#optCoach").removeClass("active-menu");
+
 	});
 
 
@@ -285,16 +318,17 @@ performAccelIndex.controller('indexCtrl', function ($scope, $http, $location, ge
     	$("#optBuildPA").removeClass("active-menu");
     	$("#opt360").removeClass("active-menu");
       $("#optReview").removeClass("active-menu");
+      $("#optCoach").removeClass("active-menu");
 	});
 
 	angular.element('#opt360').click(function(){
-		$("#opt360").addClass("active-menu");
+		  $("#opt360").addClass("active-menu");
     	$("#optSettings").removeClass("active-menu");
     	$("#optHome").removeClass("active-menu");
     	$("#optAdmin").removeClass("active-menu");
     	$("#optBuildPA").removeClass("active-menu");
-    	//$("#opt360").removeClass("active-menu");
       $("#optReview").removeClass("active-menu");
+      $("#optCoach").removeClass("active-menu");
 	});
 
   // angular.element('#treediv1').click(function(){

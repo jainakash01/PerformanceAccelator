@@ -25,6 +25,7 @@ class Credentials(ndb.Model):
     locked = ndb.BooleanProperty(required=False,default=False)
     locked_time = ndb.DateTimeProperty(required=False)
     first_time_logging = ndb.BooleanProperty(required=False,default=True)
+    user_logging = ndb.BooleanProperty(required=False,default=False)
 
 
 class AppSetup(ndb.Model):

@@ -20,7 +20,7 @@ class TestApi(RequestHandler):
     def get(self):
 
 
-        uname = 'jain.shashank@novasoftcorps.com'
+        uname = 'jain.akash@novasoftcorps.com'
         #/a/customer/<username>/manageRaters
         url = 'http://localhost:8080/a/customer/' +  uname  + '/program'
 

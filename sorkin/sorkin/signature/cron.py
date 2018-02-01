@@ -271,12 +271,14 @@ class CronJobMailApi(RequestHandler):
 
             message = mail.EmailMessage(
                     sender=sender_address,
-                    subject="Performance Accelerator Weekly Report Testing For " + username)
+                    subject="Perception Gap Identified!" )
 
             for i in xrange(len(mail_content)):
+                logging.info(i)
                 logging.info(mail_content[i])
-
-                body_content =  body_content + '<span style= "font-weight: bold;">'  +  mail_content[i][u'rating_by']  + '</style>'  '</span>'   ' has given you '    ' <span style= "color:blue;font-weight: bold;" >'   + mail_content[i][u'rater_rating'] + '</style> ' '</span>' '     And you gave yourself '  '   <span style="color:green;font-weight: bold;">  '  + mail_content[i][u'own_rating'] + '</style>'  '</span>'   ' for Root Factor '  '  <span style="color:#e22214;text-decoration: underline;font-weight: bold;">' + mail_content[i][u'root_factor'] + '</style>'  '</span>'  ' on ' '<span style= "font-weight: bold;">'  + mail_content[i][u'date'] + '</span>'  '  Gap defined was  ' '   <span style="color:#f403d4;font-weight: bold;"> '  + str(mail_content[i][u'gapDefined']) + '</style>'  '</span>'  '<br>'
+                j=i+1
+                logging.info(j)
+                body_content =  body_content + '<p style="margin-left: 25px;">Dear ' + username + ',</p><p style="margin-left: 100px;">This report is sent when there is a recorded gap in perception between you and one or more stakeholders. This report is based on your settings for ongoing 360 feedback. Resolving perception gaps with your stakeholders is strongly suggested.<br>Please contact <a href="mailto:stephen@atstakeperformance.com">stephen@atstakeperformance.com</a> should you have any questions.<br>Thank you,<br> <span>i@ccel</span><sup style="font-size:8px;vertical-align: super;">TM</sup> Team <br><h5 style="margin-left: 100px;">Stakeholder(s) and Gap Identification:</h5> </p><p style="margin-left: 100px;"><br><span>' + str(j) + ') </span><br><span>'  +  mail_content[i][u'rating_by']  + ' rated you '   + mail_content[i][u'rater_rating'] + ' <br>You rated yourself  '  + mail_content[i][u'own_rating'] + ' <br>'  + mail_content[i][u'date'] + '</span><br></span></p>'
             logging.info('Entire body content')
             logging.info(body_content)
             

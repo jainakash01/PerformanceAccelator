@@ -162,6 +162,7 @@ class CustomerApi(RequestHandler):
                 pass
             
             customer.first_time_logging = False
+            
 
             customer.put()
 
@@ -218,6 +219,7 @@ class CustomerApi(RequestHandler):
         customer.authenticated = False
         customer.authenticate_steve = False
         customer.first_time_logging = True
+        customer.user_logging = False
         customer.put()
 
         sender_address = 'admin@iaccel-atstakeperformance.com'.format(app_identity.get_application_id())  #'admin@iaccel-atstakeperformance.com'
@@ -536,19 +538,26 @@ class CheckIfFirstLogging(RequestHandler):
 
         logging.info('Inside check if firsttimelogging')
 
-        logging.info(username)
-
         key = ndb.Key(Credentials, username)
         customer = key.get()
+        logging.info(customer)
+        customer.user_logging = True
         results = {}
         if not customer:
             self.error('User Not found', status = 404)
             return
 
         if customer.first_time_logging == True:
-            results = {'first_time_logging':True} 
+            results = {'first_time_logging':True , 'user_logging':False} 
             customer.first_time_logging = False
+            customer.user_logging = True
             customer.put()
+            
+        if customer.first_time_logging == False:
+            results = {'user_logging':False} 
+            customer.user_logging = True
+            customer.put()
+            
 
         self.respond(results)
 
@@ -577,7 +586,27 @@ class CheckIfCoach(RequestHandler):
 
         self.respond(results)
 
+class LogoutCurrentUser(RequestHandler):
 
+    def get(self,username):
+
+        logging.info('Inside check if loginuser')
+
+        logging.info(username)
+
+        key = ndb.Key(Credentials, username)
+        customer = key.get()
+        results = {}
+        if not customer:
+            self.error('User Not found', status = 404)
+            return
+
+        if customer.first_time_logging == False:
+            results = {'user_logging':True} 
+            customer.user_logging = False
+            customer.put()
+            
+        self.respond(results)
 # from apiclient import discovery
 # from google.appengine.api import taskqueue
 # from google.appengine.ext import ndb

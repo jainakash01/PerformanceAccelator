@@ -8,28 +8,86 @@ import webapp2
 from google.appengine.api import mail
 from google.appengine.api import app_identity
 import random
+import customer
 from google.appengine.api import urlfetch
+
 
 
 
 class ProgramsApi(RequestHandler):
 
 
-
     def get(self, username):
-
+        # submission = self.load()
+        # key1 = ndb.Key(Credentials, submission['username'])
+        # user = key1.get()            
         program_key = ndb.Key(Programs, username)
         program = program_key.get()
-
+ 
         if program is None:
-            self.error('Please create a program first!!', status = 503)
+            self.error('Program Not Exist !!!!', status = 503)
             return
 
         results = {}
 
         qry = program_key.get()
+        doc = program.to_dict()
+        doc['_id'] = program.key.id()
+        logging.info(doc['_id'])
         results['training_cycle']  = qry.training_cycle
         results['programs']  = qry.program
+        
+        customer_key = ndb.Key(Credentials, username)
+        cust = Credentials(key = customer_key)
+        customer = customer_key.get()
+        logging.info(customer)
+        customer.user_logging = customer.user_logging
+        logging.info(customer.user_logging)
+
+
+        # if customer.application_role == "Admin":
+        # # if customer.email == customer.coach_id:
+        #     logging.info('its working')
+        #     program_key = ndb.Key(Programs, username)
+        #     program = program_key.get()
+
+        #     results = {}
+
+        #     qry = program_key.get()
+        #     doc = program.to_dict()
+        #     doc['_id'] = program.key.id()
+        #     logging.info(doc['_id'])
+        #     results['training_cycle']  = qry.training_cycle
+        #     results['programs']  = qry.program
+        # else:
+        #      logging.info('its not working')
+        #      self.error('Do Not Allow to this program..', status = 503) 
+        #      return    
+        
+        # if customer.user_logging is True:
+        #     logging.info('its working')
+        #     if customer.application_role == "Admin":
+        #     # if customer.email == customer.coach_id:
+        #         logging.info('its working')
+        #         program_key = ndb.Key(Programs, username)
+        #         program = program_key.get()
+        #         results = {}
+        #         qry = program_key.get()
+        #         doc = program.to_dict()
+        #         doc['_id'] = program.key.id()
+        #         logging.info(doc['_id'])
+        #         results['training_cycle']  = qry.training_cycle
+        #         results['programs']  = qry.program
+        #     else:
+        #          logging.info('not admin user')
+        #          self.error('not admin user..' + customer.email + customer.first_name + user.first_name, status = 503) 
+        #          return             
+        # else:
+        #      logging.info('not logged in')
+        #      self.error('not logged in..' + customer.email + customer.first_name + user.first_name,  status = 503) 
+        #      return
+      
+        
         self.respond(results)
 
 

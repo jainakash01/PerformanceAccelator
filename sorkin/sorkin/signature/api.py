@@ -44,6 +44,7 @@ wsgi = webapp2.WSGIApplication([
     webapp2.Route(r'/a/cronJob', CronJobApi),
     webapp2.Route(r'/a/CronJobMailApi/<username>', CronJobMailApi),
     webapp2.Route(r'/a/OneTimeExecution', ApproveAllSteve),
+    webapp2.Route(r'/a/customer/<username>/logout', LogoutCurrentUser),
  ], debug = True)
 
 
